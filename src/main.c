@@ -6,17 +6,17 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 20:06:11 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/10 21:03:52 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	game_init(&game);
+	parser(argc, argv);
 	game_loop(&game);
 	return (0);
 }

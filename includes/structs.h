@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:19 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 19:01:48 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/10 20:54:17 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef enum e_error_type
 	et_win_init,
 	et_alloc_fail,
 	et_img_fail,
+	et_usage_fail,
 	et_count
 }	t_error_type;
 

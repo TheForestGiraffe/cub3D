@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 19:02:01 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 19:02:15 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/10 20:57:34 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,20 @@ static char	*error_fetch_message(t_error_type error)
 		return ("Failure to allocate memory");
 	else if (error == et_img_fail)
 		return ("Failure to create image");
+	else if (error == et_usage_fail)
+		return ("[USAGE] ./cub3D *.cub");
 	else
 		return ("Unknown error");
 }
 
 static void	error_exit(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
+	if (game)
+	{
+		mlx_destroy_window(game->mlx, game->win);
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
 	exit(1);
 }
 

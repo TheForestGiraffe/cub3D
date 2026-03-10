@@ -24,6 +24,7 @@ SRCS		:= \
 			$(SRC_DIR)/main.c \
 			$(SRC_DIR)/game/game_init.c \
 			$(SRC_DIR)/game/game_loop.c \
+			$(SRC_DIR)/parser/parser.c \
 			$(SRC_DIR)/utils/error.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

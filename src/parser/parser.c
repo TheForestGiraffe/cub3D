@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 19:51:05 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 21:01:47 by tcunha           ###   ########.fr       */
+/*   Created: 2026/03/10 21:04:04 by tcunha            #+#    #+#             */
+/*   Updated: 2026/03/10 21:21:56 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-#include <X11/keysym.h>
-#include <X11/X.h>
 
-static int	keypress(int keycode, t_game *game)
+static void	parser_validate_input(int argc, char **argv)
 {
-	if (keycode == XK_Escape)
-		game_destruct(game);
-	return (0);
+	char	*suffix;
+
+	if (argc != 2)
+		fatal_error(NULL, et_usage_fail);
+	suffix = ft_strnstr(argv[1], ".cub", ft_strlen(argv[1]));
+	if (!suffix || suffix[4] != '\0')
+		fatal_error(NULL, et_usage_fail);
 }
 
-void	game_loop(t_game *game)
+void	parser(int argc, char **argv)
 {
-	game_init(game);
-	mlx_hook(game->win, KeyPress, KeyPressMask, keypress, game);
-	mlx_hook(game->win, DestroyNotify, NoEventMask, game_destruct, game);
-	mlx_loop(game->mlx);
+	parser_validate_input(argc, argv);
 }

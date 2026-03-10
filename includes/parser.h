@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 18:53:58 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/10 21:09:11 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define PARSER_H
 
 # include "structs.h"
+
+void	parser(int argc, char **argv);
 
 #endif
