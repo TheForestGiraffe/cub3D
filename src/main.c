@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 19:00:42 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/10 19:02:28 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	main(void)
 
 	game_init(&game);
 	game_destruct(&game);
-	return 0;
+	return (0);
 }
