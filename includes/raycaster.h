@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   raycaster.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 18:58:42 by tcunha           ###   ########.fr       */
+/*   Created: 2026/03/10 18:54:52 by tcunha            #+#    #+#             */
+/*   Updated: 2026/03/10 18:55:08 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#ifndef RAYCASTER_H
+# define RAYCASTER_H
 
 # include "structs.h"
-
-void	game_init(t_game *game);
-void	game_destruct(t_game *game);
 
 #endif

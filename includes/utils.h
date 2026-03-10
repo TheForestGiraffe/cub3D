@@ -1,18 +1,20 @@
-#ifndef ERROR_H
-# define ERROR_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 18:54:24 by tcunha            #+#    #+#             */
+/*   Updated: 2026/03/10 18:54:37 by tcunha           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-struct	s_game;
+#ifndef UTILS_H
+# define UTILS_H
 
-typedef enum e_error_type
-{
-	none,
-	et_mlx_init,
-	et_win_init,
-	et_alloc_fail,
-	et_img_fail,
-	et_count
-}	t_error_type;
+# include "structs.h"
 
-void	fatal_error(struct s_game *game, t_error_type error);
+void	fatal_error(t_game *game, t_error_type error);
 
 #endif

@@ -22,6 +22,7 @@ MLX_DIR		:= libs/mlx
 
 SRCS		:= \
 			$(SRC_DIR)/main.c \
+			$(SRC_DIR)/game/game_init.c \
 			$(SRC_DIR)/utils/error.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

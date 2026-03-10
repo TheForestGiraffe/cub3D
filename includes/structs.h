@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.h                                             :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 18:58:42 by tcunha           ###   ########.fr       */
+/*   Created: 2026/03/10 18:54:19 by tcunha            #+#    #+#             */
+/*   Updated: 2026/03/10 18:54:19 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_H
-# define GAME_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-# include "structs.h"
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 600
 
-void	game_init(t_game *game);
-void	game_destruct(t_game *game);
+struct	s_list;
+
+typedef enum e_error_type
+{
+	none,
+	et_mlx_init,
+	et_win_init,
+	et_alloc_fail,
+	et_img_fail,
+	et_count
+}	t_error_type;
+
+typedef struct	s_game
+{
+	void			*mlx;
+	void			*win;
+	struct s_list	*gc;
+}	t_game;
 
 #endif
