@@ -13,8 +13,8 @@ CFLAGS		:= -Wall -Wextra -Werror -g
 SRC_DIR		:= src
 OBJ_DIR		:= obj
 INC_DIR		:= includes
-LIBFT_DIR	:= libft
-MLX_DIR		:= mlx
+LIBFT_DIR	:= libs/libft
+MLX_DIR		:= libs/mlx
 
 # **************************************************************************** #
 #                                   SOURCES                                    #
