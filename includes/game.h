@@ -3,20 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 20:06:27 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/16 14:34:20 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-# include "structs.h"
+typedef struct s_img
+{
+	void	*img;
+	char	*address;
+	int		bits_per_pixel;
+	int		line_size;
+	int		endian;
+}			t_img;
 
-void	game_init(t_game *game);
-int		game_destruct(t_game *game);
-void	game_loop(t_game *game);
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*window;
+	t_img	img;
+}			t_mlx;
+
+typedef struct s_texture
+{
+	t_img	img;
+	int		height;
+	int		width;
+}			t_texture;
+
+typedef struct s_model
+{
+	t_texture	tex_north;
+	t_texture	tex_souht;
+	t_texture	tex_west;
+	t_texture	tex_east;
+	int			floor_color;
+	int			ceiling_color;
+	t_map		map;
+}				t_model;
+
+typedef struct s_player
+{
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}			t_player;
+
+typedef struct s_game
+{
+	t_mlx		mlx;
+	t_model		model;
+	t_player	player;
+}				t_game;
+
+int		game_setup(t_game *game, t_level_description *level_description);
+int		game_init(t_game *game);
+void	game_destroy(t_game *game);
 
 #endif
