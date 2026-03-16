@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:10:51 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/16 10:49:28 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/16 11:07:38 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_parsed_model
 	t_player	player;
 }				t_parsed_model;
 
-void	parsed_model_create(t_parsed_model *parsed_model);
-void	parsed_model_destroy(t_parsed_model *parsed_model);
+t_parsed_model	*parsed_model_create(void);
+void			parsed_model_destroy(t_parsed_model *parsed_model);
 
 #endif
