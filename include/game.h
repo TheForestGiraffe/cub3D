@@ -6,12 +6,14 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/16 14:34:20 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/16 21:02:14 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
+
+#include "map.h"
 
 typedef struct s_img
 {
@@ -44,10 +46,12 @@ typedef struct s_model
 	t_texture	tex_east;
 	int			floor_color;
 	int			ceiling_color;
-	t_map		map;
+	char		**grid;
+	int			width;
+	int			height;
 }				t_model;
 
-typedef struct s_player
+typedef struct s_game_player
 {
 	double	x;
 	double	y;
@@ -55,16 +59,16 @@ typedef struct s_player
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
-}			t_player;
+}			t_game_player;
 
 typedef struct s_game
 {
-	t_mlx		mlx;
-	t_model		model;
-	t_player	player;
-}				t_game;
+	t_mlx			mlx;
+	t_model			model;
+	t_game_player	player;
+}					t_game;
 
-int		game_setup(t_game *game, t_level_description *level_description);
+int		game_setup(t_game *game, t_map *map);
 int		game_init(t_game *game);
 void	game_destroy(t_game *game);
 
