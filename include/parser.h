@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   level_description_destroy.c                        :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 10:10:51 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/16 14:33:22 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
+/*   Updated: 2026/03/16 21:11:09 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#ifndef PARSE_H
+# define PARSE_H
 
-void	level_description_destroy(t_level_description *level_description)
-{
-	// TODO
-}
+# include "map.h"
+
+int		parse_map(int argc, char **argv, t_map *map);
+
+#endif

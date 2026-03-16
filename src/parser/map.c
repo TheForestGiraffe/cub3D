@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_private.h                                   :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:10:51 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/16 13:47:14 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/16 21:03:38 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSED_PRIVATE_H
-# define PARSED_PRIVATE_H
+#include "map.h"
 
-# include "parser.h"
-
-#endif
+void	map_destroy(t_map *map)
+{
+	// TODO
+}
