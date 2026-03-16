@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/16 13:47:27 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/16 14:32:51 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,26 @@ typedef struct s_map
 	int		height;
 }	t_map;
 
-typedef struct s_player
+typedef struct s_player_start
 {
 	int		x;
 	int		y;
 	char	direction;
-}	t_player;
+}	t_player_start;
 
-typedef struct s_parsed_model
+typedef struct s_level_description
 {
-	char		*tex_north;
-	char		*tex_south;
-	char		*tex_west;
-	char		*tex_east;
-	t_rgb		floor_color;
-	t_rgb		ceiling_color;
-	t_map		map;
-	t_player	player;
-}				t_parsed_model;
+	char			*tex_north;
+	char			*tex_south;
+	char			*tex_west;
+	char			*tex_east;
+	t_rgb			floor_color;
+	t_rgb			ceiling_color;
+	t_map			map;
+	t_player_start	player_start;
+}					t_level_description;
 
-int		parse(int argc, char **argv, t_parsed_model *parsed_model);
-void	parsed_model_destroy(t_parsed_model *parsed_model);
+int		parse(int argc, char **argv, t_level_description *level_description);
+void	level_description_destroy(t_level_description *level_description);
 
 #endif
