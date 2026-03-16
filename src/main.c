@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 21:03:52 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/16 13:11:24 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "parser.h"
 
 int	main(int argc, char **argv)
 {
-	t_game	game;
+	t_parsed_model	*parsed_model;
 
-	parser(argc, argv);
-	game_loop(&game);
+	parsed_model = parse(argc, argv);
+	if (!parsed_model)
+		return (1);
+	
 	return (0);
 }
