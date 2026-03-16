@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:19 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 20:54:17 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/16 13:54:36 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,5 @@ typedef enum e_error_type
 	et_usage_fail,
 	et_count
 }	t_error_type;
-
-typedef struct s_game
-{
-	void			*mlx;
-	void			*win;
-	struct s_list	*gc;
-}	t_game;
 
 #endif
