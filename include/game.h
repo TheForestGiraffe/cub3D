@@ -6,14 +6,12 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/17 15:43:52 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/17 21:00:04 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
-
-# include "map.h"
 
 typedef struct s_img
 {
