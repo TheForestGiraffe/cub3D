@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/17 11:59:19 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/17 16:22:21 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,21 @@
 #include "parser.h"
 #include "game.h"
 
-// WIP
 int	game_init(t_game *game)
 {
 	ft_bzero(game, sizeof(t_game));
-	game->mlx.mlx = mlx_init();
-	if (!game->mlx.mlx)
-	{
-		ft_putstr_fd("Error\ngame_init: mlx_init failed", 2);
-		return (1);
-	}
-
-
-
-	
-	game->win = mlx_new_window(game->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
-	if (!game->win)
-		fatal_error(game, et_win_init);
+	game->mlx.width = 860;
+	game->mlx.height = 640;
+	game->mlx.img.bits_per_pixel = // TODO
+	game->mlx.img.line_size = // TODO
+	game->mlx.img.endian = // TODO
 }
 
-int		game_setup(t_game *game, t_map *map)
+int	game_setup(t_game *game, t_map *map)
 {
 	if (game_init(game))
+		return (1);
+	if (mlx_setup(game))
 		return (1);
 	return (0);
 }
