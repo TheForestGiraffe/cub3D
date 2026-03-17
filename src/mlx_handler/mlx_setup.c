@@ -6,24 +6,15 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:52:40 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/17 16:21:05 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/17 21:52:42 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-/* mlx_setup wraps:
-	mlx_init
-	mlx_new_window
-	mlx_new_image
-	mlx_get_data_addr and
-	*/
-// TODO: pass mlx instead of game
-int	mlx_setup(t_game *game)
+//WIP
+int	mlx_setup(t_mlx *mlx)
 {
-	t_mlx	*mlx;
-
-	mlx = &game->mlx;
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
 		return (ft_putstr_fd("Error\n@mlx_setup, mlx_init", 2), 2);
