@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/17 20:57:20 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/17 21:24:05 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_map
 	t_map_player	player;
 }					t_map;
 
-int		parser(int argc, char **argv, t_map *map);
+int		parser(int argc, char *file, t_map *map);
 void	map_destroy(t_map *map);
 
 #endif

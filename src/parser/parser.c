@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 21:04:04 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/16 21:10:07 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/17 21:35:54 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "libft.h"
+#include "parser.h"
+#include <fcntl.h>
+#include <unistd.h>
 
-static void	parser_validate_input(int argc, char **argv)
+static int	parser_validate_input(int argc, char *file)
 {
 	char	*suffix;
 
 	if (argc != 2)
-		fatal_error(NULL, et_usage_fail);
-	suffix = ft_strnstr(argv[1], ".cub", ft_strlen(argv[1]));
+		return (ft_putendl_fd("[USAGE] ./cub3D *.cub", 2), 1);
+	suffix = ft_strnstr(file, ".cub", ft_strlen(file));
 	if (!suffix || suffix[4] != '\0')
-		fatal_error(NULL, et_usage_fail);
+		return (ft_putendl_fd("[USAGE] ./cub3D *.cub", 2), 1);
+	return (0);
 }
 
-void	parse_map(int argc, char **argv)
+int	parser(int argc, char *file, t_map *map)
 {
-	parser_validate_input(argc, argv);
+	int	fd;
+
+	if (parser_validate_input(argc, file))
+		return (1);
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return (ft_putendl_fd("Error\n@parser, open", 2), 1);
+	if (parser_textures(map, file))
+		return (1);
+	close(fd);
+	return (0);
 }
