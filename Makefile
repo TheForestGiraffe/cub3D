@@ -12,7 +12,7 @@ CFLAGS		:= -Wall -Wextra -Werror -g
 
 SRC_DIR		:= src
 OBJ_DIR		:= obj
-INC_DIR		:= includes
+INC_DIR		:= include
 LIBFT_DIR	:= libs/libft
 MLX_DIR		:= libs/mlx
 

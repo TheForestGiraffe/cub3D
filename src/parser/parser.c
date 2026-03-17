@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 21:04:04 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/10 21:21:56 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/16 21:10:07 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	parser_validate_input(int argc, char **argv)
 		fatal_error(NULL, et_usage_fail);
 }
 
-void	parser(int argc, char **argv)
+void	parse_map(int argc, char **argv)
 {
 	parser_validate_input(argc, argv);
 }
