@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/17 11:34:22 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/17 15:43:52 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*window;
+	int		width;
+	int		height;
 	t_img	img;
 }			t_mlx;
 
