@@ -22,8 +22,10 @@ MLX_DIR		:= libs/mlx
 
 SRCS		:= \
 			$(SRC_DIR)/main.c \
-			$(SRC_DIR)/parser/parser.c
-			$(SRC_DIR)/parser/parser_textures.c
+			$(SRC_DIR)/parser/parser.c \
+			$(SRC_DIR)/parser/parser_textures.c \
+			$(SRC_DIR)/parser/parser_utils.c \
+			$(SRC_DIR)/parser/parser_destroy.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

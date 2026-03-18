@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 21:04:04 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/17 21:35:54 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/18 22:43:17 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int	parser(int argc, char *file, t_map *map)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		return (ft_putendl_fd("Error\n@parser, open", 2), 1);
-	if (parser_textures(map, file))
-		return (1);
+	ft_memset(map, 0, sizeof(t_map));
+	if (parser_textures(map, fd))
+		return (close(fd), 1);
 	close(fd);
 	return (0);
 }
