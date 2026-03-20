@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/19 16:40:42 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:53:41 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,11 @@
 #include "game.h"
 #include "mlx_wrapper.h"
 
-/* WIP
-	TODO:
-	game->mlx.img.bits_per_pixel = ...
-	game->mlx.img.line_size = ...
-	game->mlx.img.endian = ...
-*/
-
-int	game_init(t_game *game)
+void	game_init(t_game *game)
 {
 	ft_bzero(game, sizeof(t_game));
 	game->mlx.width = 860;
 	game->mlx.height = 640;
-
 }
 
 int	game_setup(t_game *game, t_map *map)

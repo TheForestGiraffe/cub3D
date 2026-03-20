@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 17:27:27 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/20 16:09:22 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:54:22 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,11 @@ typedef enum e_events
 {
 	ON_WINDOW_DESTROY = 17,
 	ON_KEY_PRESS = 2,
-	ON_BUTTON_PRESS = 4,
-	ON_BUTTON_RELEASE = 5,
-	ON_MOUSE_MOVE = 6
 }	t_events;
 
 typedef enum e_masks
 {
 	KEY_PRESS_MASK = 1L << 0,
-	BUTTON_PRESS_MASK = 1L<<2,
-	BUTTON_RELEASE_MASK = 1L<<3,
-	MOUSE_MOVE_MASK = 1L<<6
 }	t_masks;
 
 typedef enum e_keys
