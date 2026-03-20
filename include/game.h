@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/20 19:53:36 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:52:43 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ typedef struct s_game
 }					t_game;
 
 int		game_setup(t_game *game, t_map *map);
-int		game_init(t_game *game);
+void	game_init(t_game *game);
 void	game_destroy(t_game *game);
-void	game_loop(void *param);
+int		game_loop(void *param);
 
 #endif

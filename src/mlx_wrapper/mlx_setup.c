@@ -6,12 +6,14 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:52:40 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/19 16:50:56 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:53:23 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+#include "mlx.h"
 #include "mlx_wrapper_internal.h"
+#include "libft.h"
 
 int	mlx_setup(t_game *game)
 {

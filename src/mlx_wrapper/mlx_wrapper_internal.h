@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 17:27:27 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/20 19:54:22 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:51:56 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef enum e_keys
 void	mlx_register_hooks(t_game *game);
 
 // mlx_events.c
-void	on_window_destroy(void *param);
-int		on_key_press(int key, void *param);
+int	on_window_destroy(void *param);
+int	on_key_press(int key, void *param);
 
 #endif

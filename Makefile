@@ -23,7 +23,10 @@ MLX_WRAPPER_DIR := src/mlx_wrapper
 
 SRCS		:= \
 			$(SRC_DIR)/main.c \
+			$(SRC_DIR)/game/game_destroy.c \
+			$(SRC_DIR)/game/game_loop.c \
 			$(SRC_DIR)/game/game_setup.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_destroy.c \
 			$(SRC_DIR)/mlx_wrapper/mlx_events.c \
 			$(SRC_DIR)/mlx_wrapper/mlx_register_hooks.c \
 			$(SRC_DIR)/mlx_wrapper/mlx_setup.c \

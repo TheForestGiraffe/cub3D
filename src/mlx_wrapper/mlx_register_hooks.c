@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 10:55:28 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/20 17:12:08 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:52:17 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	mlx_register_hooks(t_game *game)
 	t_mlx	*mlx;
 
 	mlx = &game->mlx;
-	mlx_hook(mlx->window, ON_WINDOW_DESTROY, 0, &on_window_destroy, game);
-	mlx_hook(mlx->window, ON_KEY_PRESS, KEY_PRESS_MASK, &on_key_press, game);
-	mlx_loop_hook(mlx->mlx, &game_loop, game);
+	mlx_hook(mlx->window, ON_WINDOW_DESTROY, 0, on_window_destroy, game);
+	mlx_hook(mlx->window, ON_KEY_PRESS, KEY_PRESS_MASK, on_key_press, game);
+	mlx_loop_hook(mlx->mlx, game_loop, game);
 }

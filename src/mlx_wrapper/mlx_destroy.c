@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_events.c                                       :+:      :+:    :+:   */
+/*   mlx_destroy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 16:07:16 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/20 20:51:47 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/03/20 20:16:23 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/03/20 21:02:03 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
 #include "game.h"
-#include "mlx_wrapper_internal.h"
-#include <X11/keysym.h>
-#include <stdlib.h>
+#include "stddef.h"
 
-int	on_window_destroy(void *param)
+void	mlx_destroy(t_mlx *mlx)
 {
-	t_game	*game;
-
-	game = (t_game *)param;
-	game_destroy(game);
-	exit(0);
-	return (0);
-}
-
-int	on_key_press(int key, void *param)
-{
-	t_game	*game;
-
-	game = (t_game *)param;
-	if (key == XK_Escape)
+	if (mlx->img.img)
 	{
-		game_destroy(game);
-		exit(0);
+		mlx_destroy_image(mlx->mlx, mlx->img.img);
+		mlx->img.img = NULL;
 	}
-	return (0);
+	if (mlx->window)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->window);
+		mlx->window = NULL;
+	}
+	if (mlx->mlx)
+	{
+		mlx_destroy_display(mlx->mlx);
+		mlx->mlx = NULL;
+	}
 }

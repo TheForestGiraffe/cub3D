@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 21:46:12 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/19 16:49:39 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 20:59:53 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "game.h"
 
-int	mlx_setup(t_game *game);
+int		mlx_setup(t_game *game);
+void	mlx_destroy(t_mlx *mlx);
 
 #endif
