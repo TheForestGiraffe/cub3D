@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/18 22:56:49 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/20 21:56:57 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PARSER_H
 
 # define FINISHED 0x3F
+
+struct	s_list;
 
 typedef enum e_element
 {
@@ -51,6 +53,8 @@ typedef struct s_map
 /* ************************************************************************** */
 
 int		parser(int argc, char *file, t_map *map);
+int		parser_map(t_map *map, int fd);
+int		parser_retrieve_map(struct s_list **list, int fd);
 int		parser_textures(t_map *map, int fd);
 void	parser_destroy(t_map *map);
 
