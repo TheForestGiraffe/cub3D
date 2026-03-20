@@ -10,11 +10,12 @@ CFLAGS		:= -Wall -Wextra -Werror -g
 #                                 DIRECTORIES                                  #
 # **************************************************************************** #
 
-SRC_DIR		:= src
-OBJ_DIR		:= obj
-INC_DIR		:= include
-LIBFT_DIR	:= libs/libft
-MLX_DIR		:= libs/mlx
+SRC_DIR			:= src
+OBJ_DIR			:= obj
+INC_DIR			:= include
+LIBFT_DIR		:= libs/libft
+MLX_DIR			:= libs/mlx
+MLX_WRAPPER_DIR := src/mlx_wrapper
 
 # **************************************************************************** #
 #                                   SOURCES                                    #
@@ -23,7 +24,9 @@ MLX_DIR		:= libs/mlx
 SRCS		:= \
 			$(SRC_DIR)/main.c \
 			$(SRC_DIR)/game/game_setup.c \
-			$(SRC_DIR)/mlx_handler/mlx_setup.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_events.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_register_hooks.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_setup.c \
 			$(SRC_DIR)/parser/parser.c \
 			$(SRC_DIR)/parser/map_destroy.c
 

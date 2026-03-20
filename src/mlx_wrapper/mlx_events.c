@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_destroy_and_exit.c                            :+:      :+:    :+:   */
+/*   mlx_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 16:07:16 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/19 16:25:33 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:07:45 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-#include <stdlib.h>
+#include "mlx_wrapper_internal.h"
 
-void	game_destroy_and_exit(t_game *game, int exit_status)
+void	on_window_destroy(void *param)
 {
+	t_game	*game;
+
+	game = param;
 	game_destroy(game);
-	exit(EXIT_SUCCESS);
+	exit(0);
+}
+
+int	on_key_press(int key, void *param)
+{
+	t_game	*game;
+
+	game = param;
+	if (key == XK_Escape)
+	{
+		game_destroy(game);
+		exit(0);
+	}
+	return (0);
 }
