@@ -6,14 +6,14 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/20 17:08:06 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 19:53:36 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-#include "parser.h"
+# include "parser.h"
 
 typedef struct s_img
 {
@@ -43,7 +43,7 @@ typedef struct s_texture
 typedef struct s_model
 {
 	t_texture	tex_north;
-	t_texture	tex_souht;
+	t_texture	tex_south;
 	t_texture	tex_west;
 	t_texture	tex_east;
 	int			floor_color;
