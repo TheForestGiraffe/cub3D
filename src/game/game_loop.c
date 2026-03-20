@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   game_lopp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/20 17:18:58 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/03/20 17:05:46 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
 #include "game.h"
-#include "mlx.h"
 
-int	main(int argc, char **argv)
+void	game_loop(void *param)
 {
-	t_map	map;
-	t_game	game;
+	t_game	*game;
 
-	if (parser(argc, argv, &map))
-		return (1);
-	if (game_setup(&game, &map))
-	{
-		map_destroy(&map);
-		return (1);
-	}
-	map_destroy(&map);
-	mlx_loop(game.mlx.mlx);
-	return (0);
+	game = param;
 }

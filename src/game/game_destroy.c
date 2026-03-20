@@ -6,13 +6,12 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/19 16:20:04 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/20 17:08:32 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-//TODO:
 void	game_destroy(t_game *game)
 {
 
