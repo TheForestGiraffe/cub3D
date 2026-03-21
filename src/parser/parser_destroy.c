@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:10:51 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/18 22:49:46 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 11:56:01 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,18 @@ void	parser_destroy(t_map *map)
 	i = 0;
 	while (i < e_floor)
 	{
-		free(map->u_elements[i].texture);
+		free(map->textures[i]);
 		i++;
+	}
+	if (map->grid)
+	{
+		i = 0;
+		while (map->grid[i])
+		{
+			free(map->grid[i]);
+			i++;
+		}
+		free(map->grid);
 	}
 	get_next_line(-1);
 }

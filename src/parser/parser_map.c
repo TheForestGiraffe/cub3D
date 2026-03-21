@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:44:43 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 10:42:56 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 12:09:27 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,31 @@ static int	convert_list_to_grid(t_map *map, t_list *list)
 		if (line_width > map->width)
 			map->width = line_width;
 		map->grid[i] = ft_strdup((char *)list->content);
+		if (!map->grid[i])
+			return (print_error("@parser_map", "convert_list_to_grid"), 1);
 		list = list->next;
 		i++;
 	}
 	map->grid[map->height] = NULL;
 	return (0);
 }
-
+#include <stdio.h>
 int	parser_map(t_map *map, int fd)
 {
 	t_list	*list;
 
 	list = NULL;
-	(void)map;
 	if (parser_retrieve_map(&list, fd))
-		return (1);
+		return (ft_lstclear(&list, free), 1);
 	if (convert_list_to_grid(map, list))
-		return (1);
+		return (ft_lstclear(&list, free), 1);
+	int	i = 0;
+	while (i < map->height)
+	{
+		printf("%s", map->grid[i]);
+		i++;
+	}
+	printf("\n");
 	ft_lstclear(&list, free);
 	return (0);
 }

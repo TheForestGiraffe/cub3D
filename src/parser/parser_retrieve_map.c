@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 21:50:57 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/20 21:55:55 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 12:09:10 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,13 @@ static int	retrieve_map_into_list(t_list **list, char *line)
 	return (0);
 }
 
-static int	check_remaining_lines(t_list *list, char *line, int fd)
+static int	check_remaining_lines(char *line, int fd)
 {
 	while (line)
 	{
 		if (!is_empty_line(line))
 		{
 			free(line);
-			ft_lstclear(&list, free);
 			print_error("@parser_retrieve_map", "check_remaining_lines");
 			return (1);
 		}
@@ -71,12 +70,11 @@ int	parser_retrieve_map(t_list **list, int fd)
 	line = skip_empty_lines(fd);
 	while (!is_empty_line(line))
 	{
-		line[ft_strlen(line) - 1] = '\0';
 		if (retrieve_map_into_list(list, line))
 			return (1);
 		line = get_next_line(fd);
 	}
-	if (check_remaining_lines(*list, line, fd))
+	if (check_remaining_lines(line, fd))
 		return (1);
 	return (0);
 }

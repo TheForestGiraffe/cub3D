@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/20 21:56:57 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 11:37:15 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,8 @@ typedef struct s_map_player
 
 typedef struct s_map
 {
-	union
-	{
-		char	*texture;
-		int		color;
-	}				u_elements[e_count];
+	char			*textures[4];
+	int				color[2];
 	char			**grid;
 	int				width;
 	int				height;
