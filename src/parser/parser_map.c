@@ -6,13 +6,36 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:44:43 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/20 21:57:24 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 10:42:56 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parser.h"
 #include <stdlib.h>
+
+static int	convert_list_to_grid(t_map *map, t_list *list)
+{
+	int	i;
+	int	line_width;
+
+	map->height = ft_lstsize(list);
+	map->grid = malloc((map->height + 1) * sizeof(char *));
+	if (!map->grid)
+		return (print_error("@parser_map", "convert_list_to_grid"), 1);
+	i = 0;
+	while (i < map->height)
+	{
+		line_width = ft_strlen((char *)list->content);
+		if (line_width > map->width)
+			map->width = line_width;
+		map->grid[i] = ft_strdup((char *)list->content);
+		list = list->next;
+		i++;
+	}
+	map->grid[map->height] = NULL;
+	return (0);
+}
 
 int	parser_map(t_map *map, int fd)
 {
@@ -21,6 +44,8 @@ int	parser_map(t_map *map, int fd)
 	list = NULL;
 	(void)map;
 	if (parser_retrieve_map(&list, fd))
+		return (1);
+	if (convert_list_to_grid(map, list))
 		return (1);
 	ft_lstclear(&list, free);
 	return (0);
