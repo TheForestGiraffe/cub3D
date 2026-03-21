@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 21:04:04 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 10:39:07 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 19:24:20 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ int	parser(int argc, char *file, t_map *map)
 	if (parser_map(map, fd))
 		return (close(fd), 1);
 	close(fd);
+	if (parser_validate_map(map))
+		return (1);
 	return (0);
 }

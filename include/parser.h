@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 11:37:15 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 19:26:11 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_map
 int		parser(int argc, char *file, t_map *map);
 int		parser_map(t_map *map, int fd);
 int		parser_retrieve_map(struct s_list **list, int fd);
+int		parser_validate_map(t_map *map);
 int		parser_textures(t_map *map, int fd);
 void	parser_destroy(t_map *map);
 

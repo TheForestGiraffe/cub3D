@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:44:43 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 18:09:55 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 19:23:48 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ int	parser_map(t_map *map, int fd)
 		return (ft_lstclear(&list, free), 1);
 	if (convert_list_to_grid(map, list))
 		return (ft_lstclear(&list, free), 1);
-	//if (parser_validate_map(map))
-	//	return (ft_lstclear(&list, free), 1);
 	ft_lstclear(&list, free);
 	return (0);
 }
