@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 22:05:35 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 18:09:01 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/25 21:43:44 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,19 @@ void	skip_spaces(char **str)
 {
 	while (**str && (**str == ' ' || (**str >= '\t' && **str <= '\r')))
 		(*str)++;
+}
+
+void	free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
 
 void	print_error(char *file, char *function)

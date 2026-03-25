@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 19:26:11 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/25 21:43:56 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	set_flag(int *status, t_element element);
 int		has_flag(int status, t_element element);
 int		is_finished(int status);
 void	skip_spaces(char **str);
+void	free_array(char **array);
 void	print_error(char *file, char *function);
 
 #endif
