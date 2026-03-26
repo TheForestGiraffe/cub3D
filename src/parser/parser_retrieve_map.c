@@ -6,13 +6,14 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 21:50:57 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 18:09:04 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/26 19:52:41 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft.h"
 #include "parser.h"
+#include "utils.h"
 #include <stdlib.h>
 
 static int	is_empty_line(char *line)

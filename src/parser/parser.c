@@ -6,12 +6,13 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 21:04:04 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 19:24:20 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/26 19:51:52 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parser.h"
+#include "utils.h"
 #include <fcntl.h>
 #include <unistd.h>
 

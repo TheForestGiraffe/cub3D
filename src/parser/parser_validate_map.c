@@ -6,12 +6,13 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 19:24:32 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/25 21:45:13 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/26 19:52:01 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parser.h"
+#include "utils.h"
 #include <stdlib.h>
 
 static int	check_valid_chars(t_map *map)
@@ -61,25 +62,26 @@ static int	find_player(t_map *map)
 	return (count);
 }
 
-static char	**duplicate_grid(char **grid, int height, int width)
+static char	**make_visited_grid(int height, int width)
 {
 	char	**new_grid;
 	int		i;
 
 	new_grid = malloc((height + 1) * sizeof(char *));
 	if (!new_grid)
-		return (print_error("@parser_validate_map", "duplicate_grid"), NULL);
+		return (print_error("@parser_validate_map", "make_visited_grid"), NULL);
+	ft_memset(new_grid, 0, (height + 1) * sizeof(char *));
 	i = 0;
-	while (grid[i])
+	while (i < height)
 	{
 		new_grid[i] = malloc(width + 1);
 		if (!new_grid[i])
 		{
 			free_array(new_grid);
-			return (print_error("@parser_validate_map", "duplicate_grid"),
+			return (print_error("@parser_validate_map", "make_visited_grid"),
 				NULL);
 		}
-		ft_memcpy(new_grid[i], grid[i], width + 1);
+		ft_memset(new_grid[i], 0, width + 1);
 		i++;
 	}
 	new_grid[i] = NULL;
@@ -110,7 +112,7 @@ int	parser_validate_map(t_map *map)
 		return (print_error("@parser_validate_map", "check_valid_chars"), 1);
 	if (find_player(map) != 1)
 		return (print_error("@parser_validate_map", "find_player"), 1);
-	visited = duplicate_grid(map->grid, map->height, map->width);
+	visited = make_visited_grid(map->height, map->width);
 	if (!visited)
 		return (1);
 	if (validate_map(map, visited, map->player.x, map->player.y))
