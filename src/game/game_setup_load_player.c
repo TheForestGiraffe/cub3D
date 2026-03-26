@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 21:19:33 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 21:27:33 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/26 21:41:57 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	set_plane(t_game *game, t_map *map)
 	}
 }
 
-void	player_load(t_game *game, t_map *map)
+void	load_player(t_game *game, t_map *map)
 {
 	game->player.x = map->player.x + 0.5;
 	game->player.y = map->player.y + 0.5;

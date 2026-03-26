@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_setup_I.c                                     :+:      :+:    :+:   */
+/*   game_setup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 21:31:52 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/26 23:34:14 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 #include "parser.h"
 #include "game.h"
 #include "mlx_wrapper.h"
-
-static void	model_load(t_game *game, t_map *map)
-{
-	(void)game;
-	(void)map;
-}
+#include "mlx.h"
 
 static void	game_init(t_game *game)
 {
@@ -35,7 +30,8 @@ int	game_setup(t_game *game, t_map *map)
 	game_init(game);
 	if (mlx_setup(game))
 		return (1);
-	model_load(game, map);
-	player_load(game, map);
+	if (load_model(game, map))
+		return (1);
+	load_player(game, map);
 	return (0);
 }
