@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/26 21:32:06 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/26 23:52:53 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct s_model
 	int			floor_color;
 	int			ceiling_color;
 	char		**grid;
-	int			width;
-	int			height;
+	int			cols;
+	int			rows;
 }				t_model;
 
 typedef struct s_game_player
@@ -70,11 +70,14 @@ typedef struct s_game
 	t_game_player	player;
 }					t_game;
 
-// game_setup_I
+// game_setup.c
 int		game_setup(t_game *game, t_map *map);
 
-// game_setup_II
-void	player_load(t_game *game, t_map *map);
+// game_setup_load_player.c
+void	load_player(t_game *game, t_map *map);
+
+// game_setup_load_model.c
+int		load_model(t_game *game, t_map *map);
 
 // game_destroy.c
 void	game_destroy(t_game *game);
