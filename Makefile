@@ -25,14 +25,14 @@ SRCS		:= \
 			$(SRC_DIR)/main.c \
 			$(SRC_DIR)/game/game_destroy.c \
 			$(SRC_DIR)/game/game_loop.c \
-			$(SRC_DIR)/game/game_setup_I.c \
-			$(SRC_DIR)/game/game_setup_II.c \
+			$(SRC_DIR)/game/game_setup.c \
+			$(SRC_DIR)/game/game_setup_load_model.c \
+			$(SRC_DIR)/game/game_setup_load_player.c \
 			$(SRC_DIR)/mlx_wrapper/mlx_destroy.c \
 			$(SRC_DIR)/mlx_wrapper/mlx_events.c \
 			$(SRC_DIR)/mlx_wrapper/mlx_register_hooks.c \
 			$(SRC_DIR)/mlx_wrapper/mlx_setup.c \
 			$(SRC_DIR)/parser/parser.c \
-			$(SRC_DIR)/parser/map_destroy.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
