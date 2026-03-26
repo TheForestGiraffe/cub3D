@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/20 21:01:06 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/27 00:04:36 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	game_loop(void *param)
 
 	game = (t_game *)param;
 	(void)game;
-	usleep(1000);
-	printf("game_loop");
+	printf("game_loop running\n");
+	usleep(1000000);
 	return (0);
 }
