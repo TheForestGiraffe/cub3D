@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/20 20:58:56 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/26 23:38:16 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	model_destroy(t_model *model, void *mlx)
 	if (model->grid)
 	{
 		i = 0;
-		while (i < model->height)
+		while (i < model->rows)
 			free(model->grid[i++]);
 		free(model->grid);
 		model->grid = NULL;
