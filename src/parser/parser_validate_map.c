@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 19:24:32 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/26 19:52:01 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/31 23:03:00 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	find_player(t_map *map)
 		}
 		x++;
 	}
-	return (count);
+	return (count != 1);
 }
 
 static char	**make_visited_grid(int height, int width)
@@ -110,7 +110,7 @@ int	parser_validate_map(t_map *map)
 
 	if (check_valid_chars(map))
 		return (print_error("@parser_validate_map", "check_valid_chars"), 1);
-	if (find_player(map) != 1)
+	if (find_player(map))
 		return (print_error("@parser_validate_map", "find_player"), 1);
 	visited = make_visited_grid(map->height, map->width);
 	if (!visited)

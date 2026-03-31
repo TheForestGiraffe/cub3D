@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/26 19:50:53 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/31 22:03:00 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ typedef enum e_element
 	e_west,
 	e_east,
 	e_floor,
-	e_ceiling,
-	e_count
+	e_ceiling
 }	t_element;
 
 typedef struct s_map_player

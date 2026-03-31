@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 21:39:30 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/26 19:52:31 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/31 22:50:42 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ static int	add_color(t_map *map, char *line, int *status, t_element element)
 	skip_spaces(&line);
 	if (*line != '\n' && *line != ' ' && *line != '\t' && *line != '\0')
 		return (print_error("@parser_textures", "get_color"), 1);
-	set_flag(status, element);
 	map->color[element - e_floor] = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
+	set_flag(status, element);
 	return (0);
 }
 
