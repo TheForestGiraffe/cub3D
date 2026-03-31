@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/31 23:02:24 by tcunha           ###   ########.fr       */
+/*   Created: 2026/03/26 19:49:27 by tcunha            #+#    #+#             */
+/*   Updated: 2026/03/31 22:57:05 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "parser.h"
-#include "game.h"
+#include <unistd.h>
 
-int	main(int argc, char **argv)
+void	print_error(char *function, char *message)
 {
-	t_map	map;
-	//t_game	game;
-
-	ft_memset(&map, 0, sizeof(t_map));
-	if (parser(argc, argv[1], &map))
-		return (parser_destroy(&map), 1);
-	//if (game_setup(&game, &map))
-	//{
-	//	parser_destroy(&map);
-	//	return (1);
-	//}
-	parser_destroy(&map);
-	return (0);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	ft_putstr_fd(function, STDERR_FILENO);
+	ft_putstr_fd(": ", STDERR_FILENO);
+	ft_putendl_fd(message, STDERR_FILENO);
 }

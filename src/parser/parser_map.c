@@ -6,12 +6,13 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:44:43 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/21 18:09:55 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/26 19:52:48 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parser.h"
+#include "utils.h"
 #include <stdlib.h>
 
 static void	update_width(t_map *map, char *line)
@@ -65,13 +66,17 @@ static int	convert_list_to_grid(t_map *map, t_list *list)
 	map->grid = malloc((map->height + 1) * sizeof(char *));
 	if (!map->grid)
 		return (print_error("@parser_map", "convert_list_to_grid"), 1);
+	ft_memset(map->grid, 0, (map->height + 1) * sizeof(char *));
 	i = 0;
 	while (i < map->height)
 	{
 		update_width(map, (char *)list->content);
 		map->grid[i] = ft_strdup((char *)list->content);
 		if (!map->grid[i])
+		{
+			free_array(map->grid);
 			return (print_error("@parser_map", "convert_list_to_grid"), 1);
+		}
 		list = list->next;
 		i++;
 	}
@@ -90,8 +95,6 @@ int	parser_map(t_map *map, int fd)
 		return (ft_lstclear(&list, free), 1);
 	if (convert_list_to_grid(map, list))
 		return (ft_lstclear(&list, free), 1);
-	//if (parser_validate_map(map))
-	//	return (ft_lstclear(&list, free), 1);
 	ft_lstclear(&list, free);
 	return (0);
 }

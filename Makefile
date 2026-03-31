@@ -25,9 +25,11 @@ SRCS		:= \
 			$(SRC_DIR)/parser/parser.c \
 			$(SRC_DIR)/parser/parser_map.c \
 			$(SRC_DIR)/parser/parser_retrieve_map.c \
+			$(SRC_DIR)/parser/parser_validate_map.c \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
-			$(SRC_DIR)/parser/parser_destroy.c
+			$(SRC_DIR)/parser/parser_destroy.c \
+			$(SRC_DIR)/utils/error.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
