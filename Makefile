@@ -23,6 +23,8 @@ MLX_DIR		:= libs/mlx
 SRCS		:= \
 			$(SRC_DIR)/main.c \
 			$(SRC_DIR)/parser/parser.c \
+			$(SRC_DIR)/parser/parser_map.c \
+			$(SRC_DIR)/parser/parser_retrieve_map.c \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c

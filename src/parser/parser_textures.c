@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 21:39:30 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/18 23:00:04 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/03/21 12:01:24 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	validate_paths(t_map *map)
 	i = 0;
 	while (i < e_floor)
 	{
-		fd = open(map->u_elements[i].texture, O_RDONLY);
+		fd = open(map->textures[i], O_RDONLY);
 		if (fd == -1)
 			return (print_error("@parser_textures", "validate_paths"), 1);
 		close(fd);
@@ -39,7 +39,6 @@ static int	add_color(t_map *map, char *line, int *status, t_element element)
 	int		rgb[3];
 	int		i;
 
-	set_flag(status, element);
 	skip_spaces(&line);
 	i = 0;
 	while (i < 3)
@@ -57,16 +56,17 @@ static int	add_color(t_map *map, char *line, int *status, t_element element)
 	skip_spaces(&line);
 	if (*line != '\n' && *line != ' ' && *line != '\t' && *line != '\0')
 		return (print_error("@parser_textures", "get_color"), 1);
-	map->u_elements[element].color = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
+	set_flag(status, element);
+	map->color[element - e_floor] = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
 	return (0);
 }
 
 static int	add_texture(t_map *map, char *line, int *status, t_element element)
 {
-	set_flag(status, element);
-	map->u_elements[element].texture = ft_strtrim(line, " \n\r\t");
-	if (!map->u_elements[element].texture)
+	map->textures[element] = ft_strtrim(line, " \n\r\t");
+	if (!map->textures[element])
 		return (print_error("@parser_textures", "add_texture"), 1);
+	set_flag(status, element);
 	return (0);
 }
 
