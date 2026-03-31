@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/17 21:00:04 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/18 19:49:43 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
+
+struct	s_map;
 
 typedef struct s_img
 {
@@ -68,7 +70,7 @@ typedef struct s_game
 	t_game_player	player;
 }					t_game;
 
-int		game_setup(t_game *game, t_map *map);
+int		game_setup(t_game *game, struct s_map *map);
 int		game_init(t_game *game);
 void	game_destroy(t_game *game);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/17 21:01:54 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/03/18 22:45:37 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 int	main(int argc, char **argv)
 {
 	t_map	map;
-	t_game	game;
+	//t_game	game;
 
-	if (parser(argc, argv, &map))
-		return (1);
-	if (game_setup(&game, &map))
-	{
-		map_destroy(&map);
-		return (1);
-	}
-	map_destroy(&map);
+	if (parser(argc, argv[1], &map))
+		return (parser_destroy(&map), 1);
+	//if (game_setup(&game, &map))
+	//{
+	//	parser_destroy(&map);
+	//	return (1);
+	//}
+	parser_destroy(&map);
 	return (0);
 }
