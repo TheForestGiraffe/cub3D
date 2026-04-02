@@ -6,12 +6,12 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 10:10:51 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/21 11:56:01 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 19:11:19 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "parser.h"
+#include "parser_internal.h"
 #include <stdlib.h>
 
 void	parser_destroy(t_map *map)

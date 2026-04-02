@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_validate_map.c                              :+:      :+:    :+:   */
+/*   parser_validate_grid.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 19:24:32 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/31 23:03:00 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 19:55:54 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "parser.h"
+#include "parser_internal.h"
 #include "utils.h"
 #include <stdlib.h>
 
@@ -69,7 +69,7 @@ static char	**make_visited_grid(int height, int width)
 
 	new_grid = malloc((height + 1) * sizeof(char *));
 	if (!new_grid)
-		return (print_error("@parser_validate_map", "make_visited_grid"), NULL);
+		return (print_error("@parser_validate_grid", "make_visited_grid"), NULL);
 	ft_memset(new_grid, 0, (height + 1) * sizeof(char *));
 	i = 0;
 	while (i < height)
@@ -78,7 +78,7 @@ static char	**make_visited_grid(int height, int width)
 		if (!new_grid[i])
 		{
 			free_array(new_grid);
-			return (print_error("@parser_validate_map", "make_visited_grid"),
+			return (print_error("@parser_validate_grid", "make_visited_grid"),
 				NULL);
 		}
 		ft_memset(new_grid[i], 0, width + 1);
@@ -104,21 +104,21 @@ static int	validate_map(t_map *map, char **visited, int x, int y)
 	return (0);
 }
 
-int	parser_validate_map(t_map *map)
+int	parser_validate_grid(t_map *map)
 {
 	char	**visited;
 
 	if (check_valid_chars(map))
-		return (print_error("@parser_validate_map", "check_valid_chars"), 1);
+		return (print_error("@parser_validate_grid", "check_valid_chars"), 1);
 	if (find_player(map))
-		return (print_error("@parser_validate_map", "find_player"), 1);
+		return (print_error("@parser_validate_grid", "find_player"), 1);
 	visited = make_visited_grid(map->height, map->width);
 	if (!visited)
 		return (1);
 	if (validate_map(map, visited, map->player.x, map->player.y))
 	{
 		free_array(visited);
-		return (print_error("@parser_validate_map", "validate_map"), 1);
+		return (print_error("@parser_validate_grid", "validate_grid"), 1);
 	}
 	free_array(visited);
 	return (0);

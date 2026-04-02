@@ -6,12 +6,12 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:44:43 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/26 19:52:48 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 19:48:46 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "parser.h"
+#include "parser_internal.h"
 #include "utils.h"
 #include <stdlib.h>
 
@@ -91,7 +91,7 @@ int	parser_map(t_map *map, int fd)
 	t_list	*list;
 
 	list = NULL;
-	if (parser_retrieve_map(&list, fd))
+	if (parser_retrieve_grid(&list, fd))
 		return (ft_lstclear(&list, free), 1);
 	if (convert_list_to_grid(map, list))
 		return (ft_lstclear(&list, free), 1);

@@ -6,13 +6,13 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 21:39:30 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/31 22:50:42 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 19:11:07 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft.h"
-#include "parser.h"
+#include "parser_internal.h"
 #include "utils.h"
 #include <fcntl.h>
 #include <stdlib.h>
