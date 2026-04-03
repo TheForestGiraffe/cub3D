@@ -119,8 +119,8 @@ $(OBJ_DIR)/$(TEST_PARSER_DIR)/%.o: $(TEST_PARSER_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -I$(TEST_PARSER_DIR) -c $< -o $@
 
-$(TEST_PARSER_NAME): $(LIBFT) $(TEST_COBJS) $(TEST_OBJS)
-	@$(CC) $(CFLAGS) $(TEST_COBJS) $(TEST_OBJS) -L$(LIBFT_DIR) -lft -o $(TEST_PARSER_NAME)
+$(TEST_PARSER_NAME): $(LIBFT) $(TEST_OBJS)
+	@$(CC) $(CFLAGS) $(TEST_OBJS) -L$(LIBFT_DIR) -lft -o $(TEST_PARSER_NAME)
 	@echo "$(TEST_PARSER_NAME) built successfully!"
 	@./$(TEST_PARSER_NAME)	
 
