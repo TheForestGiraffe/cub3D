@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 23:42:08 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/03 15:10:17 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "mlx_wrapper.h"
 #include "mlx.h"
 #include <stdlib.h>
+#include "utils.h"
 
 static int	alloc_grid(t_game *game, t_map *map)
 {
@@ -23,7 +24,7 @@ static int	alloc_grid(t_game *game, t_map *map)
 
 	game->model.grid = malloc(sizeof(char *) * (map->rows + 1));
 	if (!game->model.grid)
-		return (ft_putstr_fd("Error\n@load_model: malloc row", 2), 1);
+		return (print_error("@load_model", "malloc row"), 1);
 	ft_bzero(game->model.grid, sizeof(char *) * (map->rows + 1));
 	i = 0;
 	while (i < map->rows)
@@ -35,7 +36,7 @@ static int	alloc_grid(t_game *game, t_map *map)
 				free(game->model.grid[i--]);
 			free(game->model.grid);
 			game->model.grid = NULL;
-			return (ft_putstr_fd("Error\n@load_model: malloc cols", 2), 1);
+			return (print_error("@load_model", "malloc cols"), 1);
 		}
 		ft_bzero(game->model.grid[i], map->cols + 1);
 		i++;
@@ -49,7 +50,7 @@ static int	copy_grid(char **map_grid, char **game_grid, int cols, int rows)
 	int	j;
 
 	if (!map_grid || !game_grid)
-		return (ft_putstr_fd("Error\n@load_texture: null input", 2), 1);
+		return (print_error("@load_texture", "null input"), 1);
 	i = 0;
 	j = 0;
 	while (i < rows)
@@ -68,19 +69,19 @@ static int	copy_grid(char **map_grid, char **game_grid, int cols, int rows)
 static int	load_texture(char *path, t_texture *tex, t_mlx *mlx)
 {
 	if (!tex || !mlx)
-		return (ft_putstr_fd("Error\n@load_texture: null input", 2), 1);
+		return (print_error("@load_texture", "null input"), 1);
 	tex->img.img = mlx_xpm_file_to_image(mlx->mlx,
 			path,
 			&tex->width,
 			&tex->height);
 	if (!tex->img.img)
-		return (ft_putstr_fd("Error\n@load_texture: mlx_xpm_file_t...", 2), 1);
+		return (print_error("@load_texture", "mlx_xpm_file_t..."), 1);
 	tex->img.address = mlx_get_data_addr(tex->img.img,
 			&tex->img.bits_per_pixel,
 			&tex->img.line_size,
 			&tex->img.endian);
 	if (!tex->img.address)
-		return (ft_putstr_fd("Error\n@load_textue: mlx_get_data_addr", 2), 1);
+		return (print_error("@load_textue", "mlx_get_data_addr"), 1);
 	return (0);
 }
 
