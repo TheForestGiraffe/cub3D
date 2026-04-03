@@ -34,8 +34,8 @@ SRCS		:= \
 			$(SRC_DIR)/mlx_wrapper/mlx_setup.c \
 			$(SRC_DIR)/parser/parser.c \
 			$(SRC_DIR)/parser/parser_map.c \
-			$(SRC_DIR)/parser/parser_retrieve_map.c \
-			$(SRC_DIR)/parser/parser_validate_map.c \
+			$(SRC_DIR)/parser/parser_retrieve_grid.c \
+			$(SRC_DIR)/parser/parser_validate_grid.c \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
@@ -81,10 +81,41 @@ clean:
 	@echo "Object files cleaned."
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(TEST_NAME)
 	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
 	@echo "$(NAME) removed."
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# **************************************************************************** #
+#                                    TEST                                       #
+# **************************************************************************** #
+
+TEST_NAME	:= test_parser
+TEST_DIR	:= test
+TEST_SRCS	:= \
+			$(SRC_DIR)/parser/parser.c \
+			$(SRC_DIR)/parser/parser_map.c \
+			$(SRC_DIR)/parser/parser_retrieve_grid.c \
+			$(SRC_DIR)/parser/parser_validate_grid.c \
+			$(SRC_DIR)/parser/parser_textures.c \
+			$(SRC_DIR)/parser/parser_utils.c \
+			$(SRC_DIR)/parser/parser_destroy.c \
+			$(SRC_DIR)/utils/error.c \
+			$(SRC_DIR)/test/test_init.c \
+			$(SRC_DIR)/test/test_printer.c \
+			$(SRC_DIR)/test/test.c
+TEST_OBJS	:= $(TEST_SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+$(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -I$(TEST_DIR) -c $< -o $@
+
+$(TEST_NAME): $(LIBFT) $(TEST_COBJS) $(TEST_OBJS)
+	@$(CC) $(CFLAGS) $(TEST_COBJS) $(TEST_OBJS) -L$(LIBFT_DIR) -lft -o $(TEST_NAME)
+	@echo "$(TEST_NAME) built successfully!"
+
+test: $(TEST_NAME)
+	@./$(TEST_NAME)
+
+.PHONY: all clean fclean re test

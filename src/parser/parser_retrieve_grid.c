@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_retrieve_map.c                              :+:      :+:    :+:   */
+/*   parser_retrieve_grid.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 21:50:57 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/26 19:52:41 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 20:55:38 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft.h"
-#include "parser.h"
+#include "parser_internal.h"
 #include "utils.h"
 #include <stdlib.h>
 
@@ -34,7 +34,7 @@ static char	*skip_empty_lines(int fd)
 	return (line);
 }
 
-static int	retrieve_map_into_list(t_list **list, char *line)
+static int	retrieve_grid_into_list(t_list **list, char *line)
 {
 	t_list	*temp;
 
@@ -42,7 +42,7 @@ static int	retrieve_map_into_list(t_list **list, char *line)
 	if (!temp)
 	{
 		ft_lstclear(list, free);
-		return (print_error("@parser_map", "retrieve_map_into_list"), 1);
+		return (print_error("@parser_map", "retrieve_grid_into_list"), 1);
 	}
 	ft_lstadd_back(list, temp);
 	return (0);
@@ -55,7 +55,7 @@ static int	check_remaining_lines(char *line, int fd)
 		if (!is_empty_line(line))
 		{
 			free(line);
-			print_error("@parser_retrieve_map", "check_remaining_lines");
+			print_error("@parser_retrieve_grid", "check_remaining_lines");
 			return (1);
 		}
 		free(line);
@@ -64,7 +64,7 @@ static int	check_remaining_lines(char *line, int fd)
 	return (0);
 }
 
-int	parser_retrieve_map(t_list **list, int fd)
+int	parser_retrieve_grid(t_list **list, int fd)
 {
 	char	*line;
 	int		len;
@@ -75,9 +75,11 @@ int	parser_retrieve_map(t_list **list, int fd)
 		len = ft_strlen(line);
 		if (len > 0 && line[len - 1] == '\n')
 			line[len - 1] = '\0';
-		if (retrieve_map_into_list(list, line))
+		if (retrieve_grid_into_list(list, line))
 			return (1);
 		line = get_next_line(fd);
+		if (!line)
+			break ;
 	}
 	if (check_remaining_lines(line, fd))
 		return (1);
