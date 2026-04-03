@@ -6,13 +6,14 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 20:16:23 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/20 21:02:03 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/03 18:18:01 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "game.h"
 #include "stddef.h"
+#include <stdlib.h>
 
 void	mlx_destroy(t_mlx *mlx)
 {
@@ -29,6 +30,7 @@ void	mlx_destroy(t_mlx *mlx)
 	if (mlx->mlx)
 	{
 		mlx_destroy_display(mlx->mlx);
+		free(mlx->mlx);
 		mlx->mlx = NULL;
 	}
 }
