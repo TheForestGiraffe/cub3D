@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 21:50:57 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/02 19:55:30 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 20:55:38 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int	parser_retrieve_grid(t_list **list, int fd)
 		if (retrieve_grid_into_list(list, line))
 			return (1);
 		line = get_next_line(fd);
+		if (!line)
+			break ;
 	}
 	if (check_remaining_lines(line, fd))
 		return (1);
