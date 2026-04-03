@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_setup_II.c                                    :+:      :+:    :+:   */
+/*   game_setup_load_player.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 21:19:33 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 21:41:57 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/03 19:02:24 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void	set_plane(t_game *game, t_map *map)
 	{
 		game->player.plane_x = 0.66;
 		game->player.plane_y = 0;
-
 	}
 	else if (map->player.direction == 'S')
 	{
