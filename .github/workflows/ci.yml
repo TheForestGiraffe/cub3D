@@ -1,4 +1,4 @@
-name: Minishell CI Pipeline
+name: cub3D CI Pipeline
 
 on:
   push:
