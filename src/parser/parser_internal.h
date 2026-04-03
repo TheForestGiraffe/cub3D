@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_internal.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 10:33:35 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 17:11:48 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/03 18:21:42 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 
 # include "libft.h"
 # include "parser.h"
+
+typedef enum e_element
+{
+	e_south,
+	e_north,
+	e_west,
+	e_east,
+	e_floor,
+	e_ceiling
+}	t_element;
 
 int		parser_map(t_map *map, int fd);
 int		parser_retrieve_grid(t_list **list, int fd);
