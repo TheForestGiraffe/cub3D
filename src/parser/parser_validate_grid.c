@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 19:24:32 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/02 19:55:54 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/03 10:34:21 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ static char	**make_visited_grid(int height, int width)
 
 	new_grid = malloc((height + 1) * sizeof(char *));
 	if (!new_grid)
-		return (print_error("@parser_validate_grid", "make_visited_grid"), NULL);
+		return (print_error("@parser_validate_grid", "make_visited_grid"),
+			NULL);
 	ft_memset(new_grid, 0, (height + 1) * sizeof(char *));
 	i = 0;
 	while (i < height)

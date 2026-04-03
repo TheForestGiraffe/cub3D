@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 09:55:43 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 09:58:22 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/03 10:34:56 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	test_result_update(t_test_result *result, t_test *test)
 	result->passed += (result->result == test->expected);
 	result->total++;
 }
+
 int	main(void)
 {
 	t_list			*tests;
