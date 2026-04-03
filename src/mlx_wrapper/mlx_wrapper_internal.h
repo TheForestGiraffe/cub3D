@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 17:27:27 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 22:47:46 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/03 20:09:45 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,6 @@
 # define MLX_WRAPPER_INTERNAL_H
 
 # include "game.h"
-
-typedef enum e_events
-{
-	ON_WINDOW_DESTROY = 17,
-	ON_KEY_PRESS = 2,
-}	t_events;
-
-typedef enum e_masks
-{
-	KEY_PRESS_MASK = 1L << 0,
-}	t_masks;
-
-typedef enum e_keys
-{
-	LEFT_ARROW_PRESS = 65361,
-	RIGHT_ARROW_PRESS = 65363,
-	UP_ARROW_PRESS = 65362,
-	DOWN_ARROW_PRESS = 65364
-}	t_keys;
 
 // mlx_register_hooks.c
 void	mlx_register_hooks(t_game *game);
