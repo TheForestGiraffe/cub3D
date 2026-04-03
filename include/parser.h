@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/31 22:03:00 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 23:20:45 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct s_map
 	char			*textures[4];
 	int				color[2];
 	char			**grid;
-	int				width;
-	int				height;
+	int				cols;
+	int				rows;
 	t_map_player	player;
 }	t_map;
 

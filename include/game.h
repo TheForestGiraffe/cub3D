@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/03/18 19:49:43 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/02 23:23:42 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-struct	s_map;
+# include "parser.h"
 
 typedef struct s_img
 {
@@ -43,14 +43,14 @@ typedef struct s_texture
 typedef struct s_model
 {
 	t_texture	tex_north;
-	t_texture	tex_souht;
+	t_texture	tex_south;
 	t_texture	tex_west;
 	t_texture	tex_east;
 	int			floor_color;
 	int			ceiling_color;
 	char		**grid;
-	int			width;
-	int			height;
+	int			cols;
+	int			rows;
 }				t_model;
 
 typedef struct s_game_player
@@ -70,8 +70,19 @@ typedef struct s_game
 	t_game_player	player;
 }					t_game;
 
-int		game_setup(t_game *game, struct s_map *map);
-int		game_init(t_game *game);
+// game_setup.c
+int		game_setup(t_game *game, t_map *map);
+
+// game_setup_load_player.c
+void	load_player(t_game *game, t_map *map);
+
+// game_setup_load_model.c
+int		load_model(t_game *game, t_map *map);
+
+// game_destroy.c
 void	game_destroy(t_game *game);
+
+// game_loop.c
+int		game_loop(void *param);
 
 #endif

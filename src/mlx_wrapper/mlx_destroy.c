@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_setup.c                                       :+:      :+:    :+:   */
+/*   mlx_destroy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 23:34:14 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/03/20 20:16:23 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/03/20 21:02:03 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "parser.h"
-#include "game.h"
-#include "mlx_wrapper.h"
 #include "mlx.h"
+#include "game.h"
+#include "stddef.h"
 
-static void	game_init(t_game *game)
+void	mlx_destroy(t_mlx *mlx)
 {
-	ft_bzero(game, sizeof(t_game));
-	game->mlx.width = 860;
-	game->mlx.height = 640;
-}
-
-int	game_setup(t_game *game, t_map *map)
-{
-	if (!game || !map)
-		return (1);
-	game_init(game);
-	if (mlx_setup(game))
-		return (1);
-	if (load_model(game, map))
-		return (1);
-	load_player(game, map);
-	return (0);
+	if (mlx->img.img)
+	{
+		mlx_destroy_image(mlx->mlx, mlx->img.img);
+		mlx->img.img = NULL;
+	}
+	if (mlx->window)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->window);
+		mlx->window = NULL;
+	}
+	if (mlx->mlx)
+	{
+		mlx_destroy_display(mlx->mlx);
+		mlx->mlx = NULL;
+	}
 }

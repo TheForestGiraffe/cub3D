@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_setup.c                                       :+:      :+:    :+:   */
+/*   mlx_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 23:34:14 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/03/19 16:07:16 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/03/20 20:51:47 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "parser.h"
 #include "game.h"
-#include "mlx_wrapper.h"
-#include "mlx.h"
+#include "mlx_wrapper_internal.h"
+#include <X11/keysym.h>
+#include <stdlib.h>
 
-static void	game_init(t_game *game)
+int	on_window_destroy(void *param)
 {
-	ft_bzero(game, sizeof(t_game));
-	game->mlx.width = 860;
-	game->mlx.height = 640;
+	t_game	*game;
+
+	game = (t_game *)param;
+	game_destroy(game);
+	exit(0);
+	return (0);
 }
 
-int	game_setup(t_game *game, t_map *map)
+int	on_key_press(int key, void *param)
 {
-	if (!game || !map)
-		return (1);
-	game_init(game);
-	if (mlx_setup(game))
-		return (1);
-	if (load_model(game, map))
-		return (1);
-	load_player(game, map);
+	t_game	*game;
+
+	game = (t_game *)param;
+	if (key == XK_Escape)
+	{
+		game_destroy(game);
+		exit(0);
+	}
 	return (0);
 }
