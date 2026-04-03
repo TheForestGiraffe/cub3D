@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:53:18 by tcunha            #+#    #+#             */
 /*   Updated: 2026/04/03 16:54:49 by tcunha           ###   ########.fr       */

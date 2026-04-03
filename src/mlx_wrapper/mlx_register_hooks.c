@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_setup.c                                       :+:      :+:    :+:   */
+/*   mlx_register_hooks.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 23:34:14 by pecavalc         ###   ########.fr       */
+/*   Created: 2025/09/16 10:55:28 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/02 23:24:38 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "parser.h"
 #include "game.h"
-#include "mlx_wrapper.h"
 #include "mlx.h"
+#include "mlx_wrapper_internal.h"
 
-static void	game_init(t_game *game)
+void	mlx_register_hooks(t_game *game)
 {
-	ft_bzero(game, sizeof(t_game));
-	game->mlx.width = 860;
-	game->mlx.height = 640;
-}
+	t_mlx	*mlx;
 
-int	game_setup(t_game *game, t_map *map)
-{
-	if (!game || !map)
-		return (1);
-	game_init(game);
-	if (mlx_setup(game))
-		return (1);
-	if (load_model(game, map))
-		return (1);
-	load_player(game, map);
-	return (0);
+	mlx = &game->mlx;
+	mlx_hook(mlx->window, ON_WINDOW_DESTROY, 0, on_window_destroy, game);
+	mlx_hook(mlx->window, ON_KEY_PRESS, KEY_PRESS_MASK, on_key_press, game);
+	mlx_loop_hook(mlx->mlx, game_loop, game);
 }

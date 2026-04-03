@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_wrapper.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/02 23:27:18 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/03/17 21:46:12 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/02 23:22:32 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "parser.h"
-#include "game.h"
-#include "mlx.h"
+#ifndef MLX_WRAPPER_H
+# define MLX_WRAPPER_H
 
-int	main(int argc, char **argv)
-{
-	t_map	map;
-	t_game	game;
+# include "game.h"
 
-	ft_memset(&map, 0, sizeof(t_map));
-	if (parser(argc, argv[1], &map))
-		return (parser_destroy(&map), 1);
-	if (game_setup(&game, &map))
-	{
-		parser_destroy(&map);
-		return (1);
-	}
-	parser_destroy(&map);
-	mlx_loop(game.mlx.mlx);
-	return (0);
-}
+int		mlx_setup(t_game *game);
+void	mlx_destroy(t_mlx *mlx);
+
+#endif
