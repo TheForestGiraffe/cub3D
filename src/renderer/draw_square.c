@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   draw_rectangle.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/03 23:27:48 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/03 20:44:57 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/03 21:51:08 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
-#include "renderer.h"
-#include "mlx.h"
-#include <unistd.h>
+#include "renderer_internal.h"
 
-int	game_loop(void *param)
+int	draw_square(t_square *square, t_game *game)
 {
-	t_game	*game;
+	int	i;
+	int	j;
 
-	game = (t_game *)param;
-	if (draw_minimap(game))
-		return (1);
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		game->mlx.img.img, 0, 0);
+	i = 0;
+	while (i < square->size)
+	{
+		j = 0;
+		while (j < square->size)
+		{
+			if (put_pixel(square->x + j, square->y + i, game, square->color))
+				return (1);
+			j++;
+		}
+		i++;
+	}
 	return (0);
 }
