@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 21:04:04 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/02 19:50:25 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/03 17:33:04 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,29 @@
 #include "utils.h"
 #include <fcntl.h>
 #include <unistd.h>
+
+static int	validate_texture_paths(t_map *map)
+{
+	int	fd;
+
+	fd = open(map->tex_east, O_RDONLY);
+	if (fd == -1)
+		return (1);
+	close(fd);
+	fd = open(map->tex_west, O_RDONLY);
+	if (fd == -1)
+		return (1);
+	close(fd);
+	fd = open(map->tex_north, O_RDONLY);
+	if (fd == -1)
+		return (1);
+	close(fd);
+	fd = open(map->tex_south, O_RDONLY);
+	if (fd == -1)
+		return (1);
+	close(fd);
+	return (0);
+}
 
 static int	parser_validate_input(int argc, char *file)
 {
@@ -38,6 +61,8 @@ int	parser(int argc, char *file, t_map *map)
 	if (fd == -1)
 		return (ft_putendl_fd("Error\n@parser, open", 2), 1);
 	if (parser_textures(map, fd))
+		return (close(fd), 1);
+	if (validate_texture_paths(map))
 		return (close(fd), 1);
 	if (parser_map(map, fd))
 		return (close(fd), 1);

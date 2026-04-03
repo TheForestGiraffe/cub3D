@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 10:33:35 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 10:33:36 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/03 17:11:48 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # define FINISHED 0x3F
 
+# include "libft.h"
 # include "parser.h"
 
 int		parser_map(t_map *map, int fd);
-int		parser_retrieve_grid(struct s_list **list, int fd);
+int		parser_retrieve_grid(t_list **list, int fd);
 int		parser_validate_grid(t_map *map);
 int		parser_textures(t_map *map, int fd);
 void	set_flag(int *status, t_element element);
