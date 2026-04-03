@@ -81,19 +81,27 @@ clean:
 	@echo "Object files cleaned."
 
 fclean: clean
-	@rm -f $(NAME) $(TEST_NAME)
+	@rm -f $(NAME) $(TEST_PARSER_NAME)
 	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
 	@echo "$(NAME) removed."
 
 re: fclean all
 
 # **************************************************************************** #
-#                                    TEST                                       #
+#                                    TEST NORM                                 #
 # **************************************************************************** #
 
-TEST_NAME	:= test_parser
-TEST_DIR	:= test
-TEST_SRCS	:= \
+test_norm:
+	norminette -R CheckForbiddenHeaderSource \
+	$(SRC_DIR) $(INC_DIR) $(LIBFT_DIR)
+
+# **************************************************************************** #
+#                                    TEST PARSER                               #
+# **************************************************************************** #
+
+TEST_PARSER_NAME	:= test_parser
+TEST_PARSER_DIR	:= test
+TEST_PARSER_SRCS	:= \
 			$(SRC_DIR)/parser/parser.c \
 			$(SRC_DIR)/parser/parser_map.c \
 			$(SRC_DIR)/parser/parser_retrieve_grid.c \
@@ -105,17 +113,15 @@ TEST_SRCS	:= \
 			$(SRC_DIR)/test/test_init.c \
 			$(SRC_DIR)/test/test_printer.c \
 			$(SRC_DIR)/test/test.c
-TEST_OBJS	:= $(TEST_SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+TEST_OBJS	:= $(TEST_PARSER_SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-$(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
+$(OBJ_DIR)/$(TEST_PARSER_DIR)/%.o: $(TEST_PARSER_DIR)/%.c
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDES) -I$(TEST_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -I$(TEST_PARSER_DIR) -c $< -o $@
 
-$(TEST_NAME): $(LIBFT) $(TEST_COBJS) $(TEST_OBJS)
-	@$(CC) $(CFLAGS) $(TEST_COBJS) $(TEST_OBJS) -L$(LIBFT_DIR) -lft -o $(TEST_NAME)
-	@echo "$(TEST_NAME) built successfully!"
-
-test: $(TEST_NAME)
-	@./$(TEST_NAME)
+$(TEST_PARSER_NAME): $(LIBFT) $(TEST_COBJS) $(TEST_OBJS)
+	@$(CC) $(CFLAGS) $(TEST_COBJS) $(TEST_OBJS) -L$(LIBFT_DIR) -lft -o $(TEST_PARSER_NAME)
+	@echo "$(TEST_PARSER_NAME) built successfully!"
+	@./$(TEST_PARSER_NAME)	
 
 .PHONY: all clean fclean re test
