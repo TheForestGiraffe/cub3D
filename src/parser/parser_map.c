@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 19:44:43 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 17:11:00 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/06 13:22:35 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	pad_line(char **grid, int len, int cols)
 
 	temp = malloc(cols + 1);
 	if (!temp)
-		return (print_error("@parser_map", "pad_line"), 1);
+		return (print_error("@pad_line", "Allocation failure"), 1);
 	ft_memcpy(temp, *grid, len);
 	ft_memset(&temp[len], ' ', cols - len);
 	temp[cols] = '\0';
@@ -65,7 +65,7 @@ static int	convert_list_to_grid(t_map *map, t_list *list)
 	map->rows = ft_lstsize(list);
 	map->grid = malloc((map->rows + 1) * sizeof(char *));
 	if (!map->grid)
-		return (print_error("@parser_map", "convert_list_to_grid"), 1);
+		return (print_error("@convert_list_to_grid", "Alloc fail 1"), 1);
 	ft_memset(map->grid, 0, (map->rows + 1) * sizeof(char *));
 	i = 0;
 	while (i < map->rows)
@@ -75,7 +75,7 @@ static int	convert_list_to_grid(t_map *map, t_list *list)
 		if (!map->grid[i])
 		{
 			free_array(map->grid);
-			return (print_error("@parser_map", "convert_list_to_grid"), 1);
+			return (print_error("@convert_list_to_grid", "Alloc fail 2"), 1);
 		}
 		list = list->next;
 		i++;

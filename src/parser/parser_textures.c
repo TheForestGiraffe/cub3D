@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 21:39:30 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 17:36:26 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/06 13:24:34 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ static int	find_color(char *line)
 	while (i < 3)
 	{
 		if (!ft_isdigit(*line))
-			return (print_error("@parser_textures", "get_color"), -1);
+			return (print_error("@find_color", "Its not a digit"), -1);
 		rgb[i] = ft_atoi(line);
 		if (rgb[i] < 0 || rgb[i] > 255)
-			return (print_error("@parser_textures", "get_color"), -1);
+			return (print_error("@find_color", "Out of bounds"), -1);
 		while (ft_isdigit(*line))
 			line++;
 		if (i++ < 2 && *line++ != ',')
-			return (print_error("@parser_textures", "get_color"), -1);
+			return (print_error("@find_color", "Missing comma in RGB"), -1);
 	}
 	skip_spaces(&line);
 	if (*line != '\n' && *line != ' ' && *line != '\t' && *line != '\0')
-		return (print_error("@parser_textures", "get_color"), -1);
+		return (print_error("@find_color", "Unexpected chars"), -1);
 	return ((rgb[0] << 16) | (rgb[1] << 8) | rgb[2]);
 }
 
@@ -80,7 +80,7 @@ static int	parser_textures_lines(t_map *map, char *line, int *status)
 	else if (!ft_strncmp(line, "C ", 2) && !has_flag(*status, e_ceiling))
 		return (add_color(&map->ceiling_color, line + 1, status, e_ceiling));
 	else
-		return (print_error("@parser_textures", "parser_textures_lines"), 1);
+		return (print_error("@parser_textures_lines", "Unexpected chars"), 1);
 }
 
 int	parser_textures(t_map *map, int fd)

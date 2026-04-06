@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 21:50:57 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/02 20:55:38 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/06 13:21:10 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static int	retrieve_grid_into_list(t_list **list, char *line)
 	if (!temp)
 	{
 		ft_lstclear(list, free);
-		return (print_error("@parser_map", "retrieve_grid_into_list"), 1);
+		return (print_error("@retrieve_grid_into_list",
+				"Failed to create new t_list node"), 1);
 	}
 	ft_lstadd_back(list, temp);
 	return (0);
@@ -55,7 +56,7 @@ static int	check_remaining_lines(char *line, int fd)
 		if (!is_empty_line(line))
 		{
 			free(line);
-			print_error("@parser_retrieve_grid", "check_remaining_lines");
+			print_error("@check_remaining_lines", "Unexpected end of file");
 			return (1);
 		}
 		free(line);
