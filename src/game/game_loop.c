@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/06 16:56:56 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/09 00:12:54 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ int	game_loop(void *param)
 	if (!rays)
 		return (1);
 	if (draw_minimap(game))
+	{
+		free (rays);
 		return (1);
+	}
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
 		game->mlx.img.img, 0, 0);
+	free(rays);
 	return (0);
 }
