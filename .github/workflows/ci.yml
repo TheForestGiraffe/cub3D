@@ -20,6 +20,9 @@ jobs:
           - target: test_parser
             label: "cub3D: Test Parser"
 
+          - target: test_raycaster
+            label: "cub3D: Test Ray Caster"
+
     steps:
       - uses: actions/checkout@v6
 
