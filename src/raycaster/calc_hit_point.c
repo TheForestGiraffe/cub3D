@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster.h                                        :+:      :+:    :+:   */
+/*   calc_hit_point.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 16:53:02 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/08 23:39:00 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/06 16:57:58 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/08 23:45:09 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCASTER_H
-# define RAYCASTER_H
+#include "game.h"
+#include "raycaster.h"
+#include "raycaster_internal.h"
 
-typedef enum e_wall_dir
+void	calc_hit_point(t_game *game, t_ray *ray, t_temp *tmp)
 {
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST
-}	t_wall_dir;
-
-typedef struct s_ray
-{
-	int			screen_x;
-	double		perp_wall_dist;
-	double		hit_x;
-	double		hit_y;
-	int			wall_height;
-	int			wall_top;
-	int			wall_bottom;
-	double		wall_x;
-	t_wall_dir	wall_dir;
-}				t_ray;
-
-t_ray	*cast_rays(t_game *game);
-
-#endif
+	ray->hit_x = game->player.x + tmp->ray_dir_x * ray->perp_wall_dist;
+	ray->hit_y = game->player.y + tmp->ray_dir_y * ray->perp_wall_dist;
+}

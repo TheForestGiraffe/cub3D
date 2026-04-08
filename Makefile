@@ -39,6 +39,14 @@ SRCS		:= \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
+			$(SRC_DIR)/raycaster/cast_rays.c \
+			$(SRC_DIR)/raycaster/calc_hit_point.c \
+			$(SRC_DIR)/raycaster/calc_perp_wall_dist.c \
+			$(SRC_DIR)/raycaster/calc_wall_height.c \
+			$(SRC_DIR)/raycaster/calc_wall_x.c \
+			$(SRC_DIR)/raycaster/perform_dda.c \
+			$(SRC_DIR)/raycaster/ray_init.c \
+			$(SRC_DIR)/raycaster/set_wall_dir.c \
 			$(SRC_DIR)/renderer/draw_minimap.c \
 			$(SRC_DIR)/renderer/draw_square.c \
 			$(SRC_DIR)/renderer/put_pixel.c \
