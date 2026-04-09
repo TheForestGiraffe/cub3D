@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/09 22:56:16 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/09 23:17:42 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 #include "renderer.h"
 #include "mlx.h"
 #include "raycaster.h"
-#include <unistd.h>
 
 int	game_loop(void *param)
 {
-	t_game	*game;
-	t_ray	ray;
-	int		screen_x;
+	t_game			*game;
+	t_ray			ray;
+	int				screen_x;
 
 	game = (t_game *)param;
 	screen_x = 0;
