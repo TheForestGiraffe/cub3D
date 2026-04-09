@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_internal.h                                  :+:      :+:    :+:   */
+/*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 20:34:27 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/07 19:01:17 by tcunha           ###   ########.fr       */
+/*   Created: 2026/04/07 18:20:27 by tcunha            #+#    #+#             */
+/*   Updated: 2026/04/07 18:21:23 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_INTERNAL_H
-# define RENDER_INTERNAL_H
+#ifndef RENDER_H
+# define RENDER_H
 
 # include "game.h"
+# include "raycaster.h"
 
-void	img_put_pixel(t_img *img, int x, int y, unsigned int color);
-void	render_wall(void);
+int	render_stripe(t_game *game, t_ray *ray, int x);
 
 #endif

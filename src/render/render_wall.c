@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_internal.h                                  :+:      :+:    :+:   */
+/*   render_wall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 20:34:27 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/07 19:01:17 by tcunha           ###   ########.fr       */
+/*   Created: 2026/04/07 18:59:54 by tcunha            #+#    #+#             */
+/*   Updated: 2026/04/07 19:01:25 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_INTERNAL_H
-# define RENDER_INTERNAL_H
-
-# include "game.h"
-
-void	img_put_pixel(t_img *img, int x, int y, unsigned int color);
-void	render_wall(void);
-
-#endif
+void	render_wall(void)
+{
+	return ;
+}
