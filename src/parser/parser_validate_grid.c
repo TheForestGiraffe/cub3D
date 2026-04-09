@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 19:24:32 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 23:00:18 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/06 13:26:36 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ static char	**make_visited_grid(int rows, int cols)
 
 	new_grid = malloc((rows + 1) * sizeof(char *));
 	if (!new_grid)
-		return (print_error("@parser_validate_grid", "make_visited_grid"),
-			NULL);
+		return (print_error("@parser_validate_grid",
+				"Allocation fail new_grid"), NULL);
 	ft_memset(new_grid, 0, (rows + 1) * sizeof(char *));
 	i = 0;
 	while (i < rows)
@@ -80,8 +80,8 @@ static char	**make_visited_grid(int rows, int cols)
 		if (!new_grid[i])
 		{
 			free_array(new_grid);
-			return (print_error("@parser_validate_grid", "make_visited_grid"),
-				NULL);
+			return (print_error("@parser_validate_grid",
+					"Allocation fail new_grid[i]"), NULL);
 		}
 		ft_memset(new_grid[i], 0, cols + 1);
 		i++;
@@ -111,16 +111,16 @@ int	parser_validate_grid(t_map *map)
 	char	**visited;
 
 	if (check_valid_chars(map))
-		return (print_error("@parser_validate_grid", "check_valid_chars"), 1);
+		return (print_error("@parser_validate_grid", "Wrong chars present"), 1);
 	if (find_player(map))
-		return (print_error("@parser_validate_grid", "find_player"), 1);
+		return (print_error("@parser_validate_grid", "Player not found"), 1);
 	visited = make_visited_grid(map->rows, map->cols);
 	if (!visited)
 		return (1);
 	if (validate_map(map, visited, map->player.y, map->player.x))
 	{
 		free_array(visited);
-		return (print_error("@parser_validate_grid", "validate_grid"), 1);
+		return (print_error("@parser_validate_grid", "Map is not closed"), 1);
 	}
 	free_array(visited);
 	return (0);
