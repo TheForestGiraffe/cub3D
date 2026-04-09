@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 18:59:54 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/09 22:16:47 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/09 22:55:45 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static void	init_wall_render(t_game *game, t_ray *ray, t_render *render)
 {
 	render->texture = select_wall_texture(&game->model, ray);
 	render->tex_col = get_texture_col(ray, render->texture->width);
-	render->step = (double)render->texture->height / (double)ray->line_height;
-	render->tex_pos = (ray->line_top - game->model.rows / 2.0
-			+ ray->line_height / 2.0) * render->step;
+	render->step = (double)render->texture->height / (double)ray->wall_height;
+	render->tex_pos = (ray->wall_top - game->model.rows / 2.0
+			+ ray->wall_height / 2.0) * render->step;
 }
 
 static void	draw_wall_column(t_render *render, t_ray *ray, t_img *screen)
@@ -50,8 +50,8 @@ static void	draw_wall_column(t_render *render, t_ray *ray, t_img *screen)
 	int				tex_row;
 	unsigned int	color;
 
-	screen_y = ray->line_top;
-	while (screen_y <= ray->line_bottom)
+	screen_y = ray->wall_top;
+	while (screen_y <= ray->wall_bottom)
 	{
 		tex_row = (int)render->tex_pos & (render->texture->height - 1);
 		render->tex_pos += render->step;

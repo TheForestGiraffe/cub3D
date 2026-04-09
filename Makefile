@@ -47,6 +47,9 @@ SRCS		:= \
 			$(SRC_DIR)/raycaster/perform_dda.c \
 			$(SRC_DIR)/raycaster/ray_init.c \
 			$(SRC_DIR)/raycaster/set_wall_dir.c \
+			$(SRC_DIR)/render/render.c \
+			$(SRC_DIR)/render/render_wall.c \
+			$(SRC_DIR)/render/render_utils.c \
 			$(SRC_DIR)/renderer/draw_minimap.c \
 			$(SRC_DIR)/renderer/draw_square.c \
 			$(SRC_DIR)/renderer/put_pixel.c \

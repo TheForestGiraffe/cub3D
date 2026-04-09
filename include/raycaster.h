@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:02:19 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/09 22:45:51 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/09 22:52:43 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ typedef struct s_ray
 	t_wall_dir	wall_dir;
 }				t_ray;
 
-t_ray	*cast_rays(t_game *game);
+void	cast_single_ray(t_game *game, t_ray *ray, int screen_x);
 
 #endif

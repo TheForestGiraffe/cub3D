@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 16:57:58 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/08 23:51:35 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/09 22:56:31 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "utils.h"
 #include <stdlib.h>
 
-static void	cast_single_ray(t_game *game, t_ray *ray, int screen_x)
+void	cast_single_ray(t_game *game, t_ray *ray, int screen_x)
 {
 	t_temp	tmp;
 
@@ -27,21 +27,4 @@ static void	cast_single_ray(t_game *game, t_ray *ray, int screen_x)
 	calc_hit_point(game, ray, &tmp);
 	calc_wall_x(ray);
 	calc_wall_height(game, ray);
-}
-
-t_ray	*cast_rays(t_game *game)
-{
-	t_ray	*rays;
-	int		screen_x;
-
-	rays = malloc(sizeof(t_ray) * (game->mlx.width));
-	if (!rays)
-		return (print_error("@cast_rays", "malloc rays failed"), NULL);
-	screen_x = 0;
-	while (screen_x < game->mlx.width)
-	{
-		cast_single_ray(game, &rays[screen_x], screen_x);
-		screen_x++;
-	}
-	return (rays);
 }
