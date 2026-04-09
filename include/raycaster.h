@@ -6,12 +6,14 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 16:53:02 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/08 23:39:00 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/09 23:07:26 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAYCASTER_H
 # define RAYCASTER_H
+
+typedef struct s_game	t_game;
 
 typedef enum e_wall_dir
 {
@@ -34,6 +36,6 @@ typedef struct s_ray
 	t_wall_dir	wall_dir;
 }				t_ray;
 
-t_ray	*cast_rays(t_game *game);
+void	cast_rays(t_game *game);
 
 #endif

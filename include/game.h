@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 22:01:13 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/09 23:01:17 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GAME_H
 
 # include "parser.h"
+# include "raycaster.h"
 
 typedef struct s_img
 {
@@ -77,6 +78,7 @@ typedef struct s_game
 	t_mlx			mlx;
 	t_model			model;
 	t_game_player	player;
+	t_ray			*rays;
 	t_minimap		minimap;
 }					t_game;
 

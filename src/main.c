@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 19:00:41 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/02 23:27:18 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/09 23:11:44 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		return (parser_destroy(&map), 1);
 	if (game_setup(&game, &map))
 	{
+		game_destroy(&game);
 		parser_destroy(&map);
 		return (1);
 	}
