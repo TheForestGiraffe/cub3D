@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   set_wall_dir.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/09 23:42:21 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/06 16:57:58 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/08 23:45:52 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-#include "renderer.h"
-#include "mlx.h"
 #include "raycaster.h"
-#include <stdlib.h>
+#include "raycaster_internal.h"
 
-int	game_loop(void *param)
+void	set_wall_dir(t_ray *ray, t_temp *tmp)
 {
-	t_game	*game;
-
-	game = (t_game *)param;
-	cast_rays(game);
-	if (draw_minimap(game))
+	if (tmp->side == 0)
 	{
-		game_destroy(game);
-		exit(1);
+		if (tmp->ray_dir_x > 0)
+			ray->wall_dir = WEST;
+		else
+			ray->wall_dir = EAST;
 	}
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		game->mlx.img.img, 0, 0);
-	return (0);
+	else
+	{
+		if (tmp->ray_dir_y > 0)
+			ray->wall_dir = NORTH;
+		else
+			ray->wall_dir = SOUTH;
+	}
 }

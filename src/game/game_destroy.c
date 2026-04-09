@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/03/26 23:38:16 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/09 23:44:45 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ static void	model_destroy(t_model *model, void *mlx)
 void	game_destroy(t_game *game)
 {
 	model_destroy(&game->model, game->mlx.mlx);
+	free(game->rays);
+	game->rays = NULL;
 	mlx_destroy(&game->mlx);
 }

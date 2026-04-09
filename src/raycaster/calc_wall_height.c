@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   calc_wall_height.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/09 23:42:21 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/06 16:57:58 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/08 23:42:35 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-#include "renderer.h"
-#include "mlx.h"
 #include "raycaster.h"
-#include <stdlib.h>
+#include "raycaster_internal.h"
 
-int	game_loop(void *param)
+void	calc_wall_height(t_game *game, t_ray *ray)
 {
-	t_game	*game;
-
-	game = (t_game *)param;
-	cast_rays(game);
-	if (draw_minimap(game))
-	{
-		game_destroy(game);
-		exit(1);
-	}
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		game->mlx.img.img, 0, 0);
-	return (0);
+	ray->wall_height = (int)(game->mlx.height / ray->perp_wall_dist);
+	ray->wall_top = -ray->wall_height / 2 + game->mlx.height / 2;
+	if (ray->wall_top < 0)
+		ray->wall_top = 0;
+	ray->wall_bottom = ray->wall_height / 2 + game->mlx.height / 2;
+	if (ray->wall_bottom >= game->mlx.height)
+		ray->wall_bottom = game->mlx.height - 1;
 }

@@ -39,6 +39,14 @@ SRCS		:= \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
+			$(SRC_DIR)/raycaster/cast_rays.c \
+			$(SRC_DIR)/raycaster/calc_hit_point.c \
+			$(SRC_DIR)/raycaster/calc_perp_wall_dist.c \
+			$(SRC_DIR)/raycaster/calc_wall_height.c \
+			$(SRC_DIR)/raycaster/calc_wall_x.c \
+			$(SRC_DIR)/raycaster/perform_dda.c \
+			$(SRC_DIR)/raycaster/ray_init.c \
+			$(SRC_DIR)/raycaster/set_wall_dir.c \
 			$(SRC_DIR)/renderer/draw_minimap.c \
 			$(SRC_DIR)/renderer/draw_square.c \
 			$(SRC_DIR)/renderer/put_pixel.c \
@@ -85,6 +93,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME) $(TEST_PARSER_NAME)
+	@rm -f $(NAME) $(TEST_RAYCASTER_NAME)
 	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
 	@echo "$(NAME) removed."
 
@@ -103,7 +112,7 @@ test_norm:
 # **************************************************************************** #
 
 TEST_PARSER_NAME	:= test_parser
-TEST_PARSER_DIR	:= test
+TEST_PARSER_DIR		:= test
 TEST_PARSER_SRCS	:= \
 			$(SRC_DIR)/parser/parser.c \
 			$(SRC_DIR)/parser/parser_map.c \
@@ -125,6 +134,35 @@ $(OBJ_DIR)/$(TEST_PARSER_DIR)/%.o: $(TEST_PARSER_DIR)/%.c
 $(TEST_PARSER_NAME): $(LIBFT) $(TEST_OBJS)
 	@$(CC) $(CFLAGS) $(TEST_OBJS) -L$(LIBFT_DIR) -lft -o $(TEST_PARSER_NAME)
 	@echo "$(TEST_PARSER_NAME) built successfully!"
-	@./$(TEST_PARSER_NAME)	
+	@./$(TEST_PARSER_NAME)
+
+# **************************************************************************** #
+#                              TEST RAYCASTER                                  #
+# **************************************************************************** #
+
+TEST_RAYCASTER_NAME := test_raycaster
+TEST_RAYCASTER_DIR  := test
+TEST_RAYCASTER_SRCS := \
+			$(SRC_DIR)/raycaster/cast_rays.c \
+			$(SRC_DIR)/raycaster/calc_hit_point.c \
+			$(SRC_DIR)/raycaster/calc_perp_wall_dist.c \
+			$(SRC_DIR)/raycaster/calc_wall_height.c \
+			$(SRC_DIR)/raycaster/calc_wall_x.c \
+			$(SRC_DIR)/raycaster/perform_dda.c \
+			$(SRC_DIR)/raycaster/ray_init.c \
+			$(SRC_DIR)/raycaster/set_wall_dir.c \
+			$(SRC_DIR)/utils/error.c \
+			$(TEST_RAYCASTER_DIR)/test_raycaster.c
+
+TEST_RAYCASTER_OBJS := $(TEST_RAYCASTER_SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+$(OBJ_DIR)/$(TEST_RAYCASTER_DIR)/%.o: $(TEST_RAYCASTER_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -I$(TEST_RAYCASTER_DIR) -I$(SRC_DIR) -Iinclude -c $< -o $@
+
+$(TEST_RAYCASTER_NAME): $(LIBFT) $(TEST_RAYCASTER_OBJS)
+	@$(CC) $(CFLAGS) $(TEST_RAYCASTER_OBJS) -L$(LIBFT_DIR)  -Iinclude -lft -lm -o $(TEST_RAYCASTER_NAME)
+	@echo "$(TEST_RAYCASTER_NAME) built successfully!"
+	@./$(TEST_RAYCASTER_NAME)
 
 .PHONY: all clean fclean re test
