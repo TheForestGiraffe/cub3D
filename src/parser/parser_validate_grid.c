@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parser_validate_grid.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 19:24:32 by tcunha            #+#    #+#             */
 /*   Updated: 2026/04/06 13:26:36 by tcunha           ###   ########.fr       */
@@ -37,28 +37,28 @@ static int	check_valid_chars(t_map *map)
 
 static int	find_player(t_map *map)
 {
-	int	x;
-	int	y;
+	int	i;
+	int	j;
 	int	count;
 
 	count = 0;
-	x = 0;
-	while (map->grid[x])
+	i = 0;
+	while (map->grid[i])
 	{
-		y = 0;
-		while (map->grid[x][y])
+		j = 0;
+		while (map->grid[i][j])
 		{
-			if (ft_strchr("WENS", map->grid[x][y]))
+			if (ft_strchr("WENS", map->grid[i][j]))
 			{
-				map->player.direction = map->grid[x][y];
-				map->player.x = x;
-				map->player.y = y;
-				map->grid[x][y] = '0';
+				map->player.direction = map->grid[i][j];
+				map->player.x = j;
+				map->player.y = i;
+				map->grid[i][j] = '0';
 				count++;
 			}
-			y++;
+			j++;
 		}
-		x++;
+		i++;
 	}
 	return (count != 1);
 }
@@ -90,18 +90,18 @@ static char	**make_visited_grid(int rows, int cols)
 	return (new_grid);
 }
 
-static int	validate_map(t_map *map, char **visited, int x, int y)
+static int	validate_map(t_map *map, char **visited, int row, int col)
 {
-	if (y < 0 || x < 0 || y >= map->cols || x >= map->rows
-		|| map->grid[x][y] == ' ')
+	if (col < 0 || row < 0 || col >= map->cols || row >= map->rows
+		|| map->grid[row][col] == ' ')
 		return (1);
-	if (map->grid[x][y] == '1' || visited[x][y] == 'v')
+	if (map->grid[row][col] == '1' || visited[row][col] == 'v')
 		return (0);
-	visited[x][y] = 'v';
-	if (validate_map(map, visited, x + 1, y)
-		|| validate_map(map, visited, x - 1, y)
-		|| validate_map(map, visited, x, y + 1)
-		|| validate_map(map, visited, x, y - 1))
+	visited[row][col] = 'v';
+	if (validate_map(map, visited, row + 1, col)
+		|| validate_map(map, visited, row - 1, col)
+		|| validate_map(map, visited, row, col + 1)
+		|| validate_map(map, visited, row, col - 1))
 		return (1);
 	return (0);
 }
@@ -117,7 +117,7 @@ int	parser_validate_grid(t_map *map)
 	visited = make_visited_grid(map->rows, map->cols);
 	if (!visited)
 		return (1);
-	if (validate_map(map, visited, map->player.x, map->player.y))
+	if (validate_map(map, visited, map->player.y, map->player.x))
 	{
 		free_array(visited);
 		return (print_error("@parser_validate_grid", "Map is not closed"), 1);

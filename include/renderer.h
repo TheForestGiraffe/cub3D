@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   renderer.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/03 23:27:48 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/03 20:14:46 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/03 22:26:23 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
-#include "renderer.h"
-#include "mlx.h"
-#include <unistd.h>
+#ifndef RENDERER_H
+# define RENDERER_H
 
-int	game_loop(void *param)
-{
-	t_game	*game;
+# include "game.h"
 
-	game = (t_game *)param;
-	if (draw_minimap(game))
-		return (1);
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		game->mlx.img.img, 0, 0);
-	return (0);
-}
+int	draw_minimap(t_game *game);
+
+#endif

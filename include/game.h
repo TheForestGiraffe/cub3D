@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/02 23:23:42 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/03 22:01:13 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,21 @@ typedef struct s_game_player
 	double	plane_y;
 }			t_game_player;
 
+typedef struct s_minimap
+{
+	int		tile_size;
+	int		player_size;
+	int		player_color;
+	int		floor_color;
+	int		wall_color;
+}			t_minimap;
+
 typedef struct s_game
 {
 	t_mlx			mlx;
 	t_model			model;
 	t_game_player	player;
+	t_minimap		minimap;
 }					t_game;
 
 // game_setup.c
