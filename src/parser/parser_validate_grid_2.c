@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_utils2.c                                    :+:      :+:    :+:   */
+/*   parser_validate_grid_2.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:56:51 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/10 20:59:43 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 21:36:02 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser_internal.h"
-
 
 static int	validate_grid(t_map *map, char **visited, int row, int col)
 {
