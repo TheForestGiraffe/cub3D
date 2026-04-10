@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/06 20:49:59 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/07 18:56:39 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,5 @@ int	load_model(t_game *game, t_map *map)
 		return (1);
 	if (copy_grid(map->grid, game->model.grid, map->cols, map->rows))
 		return (1);
-	game->img = mlx_new_image(game->mlx.mlx, game->mlx.width, game->mlx.height);
-	if (!game->img)
-		return (1);
-	game->img->address = mlx_get_data_addr(game->img,
-		&game->img->bits_per_pixel, &game->img->line_size, &game->img->endian);
 	return (0);
 }
