@@ -6,11 +6,10 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 18:59:54 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/09 19:17:40 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/09 22:16:47 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "game.h"
 #include "raycaster.h"
 #include "render_internal.h"
@@ -38,7 +37,6 @@ static int	get_texture_col(t_ray *ray, int tex_width)
 
 static void	init_wall_render(t_game *game, t_ray *ray, t_render *render)
 {
-	ft_bzero(render, sizeof(t_render));
 	render->texture = select_wall_texture(&game->model, ray);
 	render->tex_col = get_texture_col(ray, render->texture->width);
 	render->step = (double)render->texture->height / (double)ray->line_height;
