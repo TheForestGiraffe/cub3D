@@ -52,10 +52,10 @@ SRCS		:= \
 			$(SRC_DIR)/render/render.c \
 			$(SRC_DIR)/render/render_wall.c \
 			$(SRC_DIR)/render/render_utils.c \
-			$(SRC_DIR)/renderer/draw_minimap.c \
-			$(SRC_DIR)/renderer/draw_square.c \
-			$(SRC_DIR)/renderer/put_pixel.c \
-			$(SRC_DIR)/renderer/erase_img.c \
+			$(SRC_DIR)/minimap/draw_minimap.c \
+			$(SRC_DIR)/minimap/draw_square.c \
+			$(SRC_DIR)/minimap/put_pixel.c \
+			$(SRC_DIR)/minimap/erase_img.c \
 			$(SRC_DIR)/utils/error.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

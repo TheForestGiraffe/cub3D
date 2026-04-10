@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:16:50 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 17:05:23 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 18:28:29 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "libft.h"
-#include "renderer_internal.h"
+#include "minimap_internal.h"
 #include <stdio.h>
 
 static t_square	*select_square(char grid_tile, t_square *wall, t_square *floor)

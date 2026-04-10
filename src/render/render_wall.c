@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 18:59:54 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/10 17:51:52 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 18:17:17 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	init_wall_render(t_game *game, t_ray *ray, t_render *render)
 			+ ray->wall_height / 2.0) * render->step;
 }
 
-static void	draw_wall_column(t_render *render, t_ray *ray, t_img *screen)
+static void	draw_wall_column(t_render *render, t_ray *ray, t_game *game)
 {
 	int				screen_y;
 	int				tex_row;
@@ -56,7 +56,7 @@ static void	draw_wall_column(t_render *render, t_ray *ray, t_img *screen)
 		tex_row = (int)render->tex_pos & (render->texture->height - 1);
 		render->tex_pos += render->step;
 		color = img_get_pixel(&render->texture->img, render->tex_col, tex_row);
-		img_put_pixel(screen, ray->screen_x, screen_y, color);
+		img_put_pixel(game, ray->screen_x, screen_y, color);
 		screen_y++;
 	}
 }
@@ -66,5 +66,5 @@ void	render_wall(t_game *game, t_ray *ray)
 	t_render	render;
 
 	init_wall_render(game, ray, &render);
-	draw_wall_column(&render, ray, &game->mlx.img);
+	draw_wall_column(&render, ray, game);
 }
