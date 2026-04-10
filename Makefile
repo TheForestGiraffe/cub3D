@@ -39,6 +39,8 @@ SRCS		:= \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
+			$(SRC_DIR)/player_movement/move_player.c \
+			$(SRC_DIR)/player_movement/rotate_player.c \
 			$(SRC_DIR)/raycaster/cast_rays.c \
 			$(SRC_DIR)/raycaster/calc_hit_point.c \
 			$(SRC_DIR)/raycaster/calc_perp_wall_dist.c \
@@ -50,6 +52,7 @@ SRCS		:= \
 			$(SRC_DIR)/renderer/draw_minimap.c \
 			$(SRC_DIR)/renderer/draw_square.c \
 			$(SRC_DIR)/renderer/put_pixel.c \
+			$(SRC_DIR)/renderer/erase_img.c \
 			$(SRC_DIR)/utils/error.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

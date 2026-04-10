@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/09 23:01:17 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 15:41:06 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "parser.h"
 # include "raycaster.h"
+# include <stdbool.h>
 
 typedef struct s_img
 {
@@ -54,6 +55,18 @@ typedef struct s_model
 	int			rows;
 }				t_model;
 
+typedef struct s_ctrl
+{
+	bool	move_forward;
+	bool	move_backward;
+	bool	move_left;
+	bool	move_right;
+	bool	turn_left;
+	bool	turn_right;
+	double	move_speed;
+	double	rot_speed;
+}			t_ctrl;
+
 typedef struct s_game_player
 {
 	double	x;
@@ -62,6 +75,7 @@ typedef struct s_game_player
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	t_ctrl	ctrl;
 }			t_game_player;
 
 typedef struct s_minimap

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   renderer.h                                         :+:      :+:    :+:   */
+/*   player_movement.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 20:14:46 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 12:49:50 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/10 12:34:26 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/10 16:40:08 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDERER_H
-# define RENDERER_H
+#ifndef PLAYER_MOVEMENT_H
+# define PLAYER_MOVEMENT_H
 
 # include "game.h"
 
-int		draw_minimap(t_game *game);
-void	erase_img(t_img *img, int height);
+void	move_player(t_game *game);
+void	rotate_player(t_game *game);
 
 #endif
