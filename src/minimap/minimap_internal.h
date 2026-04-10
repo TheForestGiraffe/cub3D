@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   renderer_internal.h                                :+:      :+:    :+:   */
+/*   minimap_internal.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:32:12 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/03 22:22:17 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 18:39:35 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDERER_INTERNAL_H
-# define RENDERER_INTERNAL_H
+#ifndef MINIMAP_INTERNAL_H
+# define MINIMAP_INTERNAL_H
 
 # include "game.h"
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_square.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:44:57 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/03 23:30:40 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 18:28:19 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "renderer_internal.h"
+#include "minimap_internal.h"
 
 int	draw_square(t_square *square, t_game *game)
 {

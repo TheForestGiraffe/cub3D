@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:34:27 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/08 21:28:16 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 18:18:02 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_render
 	double		tex_pos;
 }				t_render;
 
-void			img_put_pixel(t_img *img, int x, int y, unsigned int color);
+int				img_put_pixel(t_game *game, int x, int y, unsigned int color);
 unsigned int	img_get_pixel(t_img *img, int x, int y);
 void			render_wall(t_game *game, t_ray *ray);
 
