@@ -36,6 +36,7 @@ SRCS		:= \
 			$(SRC_DIR)/parser/parser_map.c \
 			$(SRC_DIR)/parser/parser_retrieve_grid.c \
 			$(SRC_DIR)/parser/parser_validate_grid.c \
+			$(SRC_DIR)/parser/parser_validate_grid_2.c \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
