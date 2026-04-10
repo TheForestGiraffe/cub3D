@@ -39,6 +39,7 @@ SRCS		:= \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
+			$(SRC_DIR)/player_movement/move_utils.c \
 			$(SRC_DIR)/player_movement/move_player.c \
 			$(SRC_DIR)/player_movement/rotate_player.c \
 			$(SRC_DIR)/raycaster/cast_rays.c \

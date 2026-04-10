@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 12:28:46 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 17:04:06 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 20:13:35 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+#include "move_internal.h"
 
 static void	move_forward(t_game *game)
 {
@@ -19,9 +20,9 @@ static void	move_forward(t_game *game)
 
 	new_x = game->player.x + game->player.dir_x * game->player.ctrl.move_speed;
 	new_y = game->player.y + game->player.dir_y * game->player.ctrl.move_speed;
-	if (game->model.grid[(int)game->player.y][(int)new_x] != '1')
+	if (is_valid_x(game, new_x, game->player.y))
 		game->player.x = new_x;
-	if (game->model.grid[(int)new_y][(int)game->player.x] != '1')
+	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
 }
 
@@ -32,9 +33,9 @@ static void	move_backward(t_game *game)
 
 	new_x = game->player.x - game->player.dir_x * game->player.ctrl.move_speed;
 	new_y = game->player.y - game->player.dir_y * game->player.ctrl.move_speed;
-	if (game->model.grid[(int)game->player.y][(int)new_x] != '1')
+	if (is_valid_x(game, new_x, game->player.y))
 		game->player.x = new_x;
-	if (game->model.grid[(int)new_y][(int)game->player.x] != '1')
+	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
 }
 
@@ -49,9 +50,9 @@ static void	move_left(t_game *game)
 	perp_y = game->player.dir_x;
 	new_x = game->player.x - perp_x * game->player.ctrl.move_speed;
 	new_y = game->player.y - perp_y * game->player.ctrl.move_speed;
-	if (game->model.grid[(int)game->player.y][(int)new_x] != '1')
+	if (is_valid_x(game, new_x, game->player.y))
 		game->player.x = new_x;
-	if (game->model.grid[(int)new_y][(int)game->player.x] != '1')
+	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
 }
 
@@ -66,9 +67,9 @@ static void	move_right(t_game *game)
 	perp_y = game->player.dir_x;
 	new_x = game->player.x + perp_x * game->player.ctrl.move_speed;
 	new_y = game->player.y + perp_y * game->player.ctrl.move_speed;
-	if (game->model.grid[(int)game->player.y][(int)new_x] != '1')
+	if (is_valid_x(game, new_x, game->player.y))
 		game->player.x = new_x;
-	if (game->model.grid[(int)new_y][(int)game->player.x] != '1')
+	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
 }
 
