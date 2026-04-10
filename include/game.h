@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:54:13 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/10 12:08:31 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 12:24:14 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_model
 	int			rows;
 }				t_model;
 
-typedef	struct s_ctrl
+typedef struct s_ctrl
 {
 	bool	move_forward;
 	bool	move_backward;
@@ -64,7 +64,7 @@ typedef	struct s_ctrl
 	bool	turn_left;
 	bool	turn_right;
 	double	move_step;
-	double	rot_step
+	double	rot_step;
 }			t_ctrl;
 
 typedef struct s_game_player
