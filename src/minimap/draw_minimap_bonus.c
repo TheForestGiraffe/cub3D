@@ -12,7 +12,7 @@
 
 #include "game.h"
 #include "libft.h"
-#include "minimap_internal.h"
+#include "minimap_internal_bonus.h"
 #include <stdio.h>
 
 static t_square	*select_square(char grid_tile, t_square *wall, t_square *floor)

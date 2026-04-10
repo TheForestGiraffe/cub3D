@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minimap_internal.h"
+#include "minimap_internal_bonus.h"
 
 int	draw_square(t_square *square, t_game *game)
 {

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,6 +12,7 @@
 
 #include "game.h"
 #include "render.h"
+#include "minimap_bonus.h"
 #include "mlx.h"
 #include "raycaster.h"
 #include "player_movement.h"
@@ -26,6 +27,7 @@ int	game_loop(void *param)
 	game = (t_game *)param;
 	move_player(game);
 	rotate_player(game);
+	erase_img(&game->mlx.img, game->mlx.height);
 	cast_rays(game);
 	x = 0;
 	while (x < game->mlx.width)
@@ -33,6 +35,13 @@ int	game_loop(void *param)
 		render_stripe(game, &game->rays[x], x);
 		x++;
 	}
+	if (draw_minimap(game))
+	{
+		game_destroy(game);
+		exit(1);
+	}
+	if (draw_minimap(game))
+		return (1);
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
 		game->mlx.img.img, 0, 0);
 	return (0);

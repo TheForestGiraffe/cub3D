@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDERER_H
-# define RENDERER_H
+#ifndef MINIMAP_BONUS_H
+# define MINIMAP_BONUS_H
 
 # include "game.h"
 

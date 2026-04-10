@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIMAP_INTERNAL_H
-# define MINIMAP_INTERNAL_H
+#ifndef MINIMAP_INTERNAL_BONUS_H
+# define MINIMAP_INTERNAL_BONUS_H
 
 # include "game.h"
 

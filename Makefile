@@ -54,13 +54,19 @@ SRCS		:= \
 			$(SRC_DIR)/render/render.c \
 			$(SRC_DIR)/render/render_wall.c \
 			$(SRC_DIR)/render/render_utils.c \
-			$(SRC_DIR)/minimap/draw_minimap.c \
-			$(SRC_DIR)/minimap/draw_square.c \
-			$(SRC_DIR)/minimap/put_pixel.c \
-			$(SRC_DIR)/minimap/erase_img.c \
 			$(SRC_DIR)/utils/error.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+BONUS_SRCS	:= \
+			$(SRC_DIR)/game/game_loop_bonus.c \
+			$(SRC_DIR)/minimap/draw_minimap_bonus.c \
+			$(SRC_DIR)/minimap/draw_square_bonus.c \
+			$(SRC_DIR)/minimap/put_pixel_bonus.c \
+			$(SRC_DIR)/minimap/erase_img_bonus.c
+
+BONUS_OBJ_DIR	:= obj_bonus
+BONUS_OBJS		:= $(BONUS_SRCS:$(SRC_DIR)/%.c=$(BONUS_OBJ_DIR)/%.o)
 
 # **************************************************************************** #
 #                                  LIBRARIES                                   #
@@ -87,6 +93,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+$(BONUS_OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+bonus: $(LIBFT) $(MLX_LIB) $(BONUS_OBJS)
+	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(LDFLAGS) $(LDLIBS) -o $(NAME)
+	@echo "$(NAME) (bonus) built successfully!"
+
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
 
@@ -94,7 +108,7 @@ $(MLX_LIB):
 	@$(MAKE) -C $(MLX_DIR) --no-print-directory > /dev/null 2>&1
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR) $(BONUS_OBJ_DIR)
 	@$(MAKE) -C $(LIBFT_DIR) clean --no-print-directory
 	@$(MAKE) -C $(MLX_DIR) clean --no-print-directory > /dev/null 2>&1
 	@echo "Object files cleaned."
@@ -126,6 +140,7 @@ TEST_PARSER_SRCS	:= \
 			$(SRC_DIR)/parser/parser_map.c \
 			$(SRC_DIR)/parser/parser_retrieve_grid.c \
 			$(SRC_DIR)/parser/parser_validate_grid.c \
+			$(SRC_DIR)/parser/parser_validate_grid_2.c \
 			$(SRC_DIR)/parser/parser_textures.c \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
@@ -173,4 +188,4 @@ $(TEST_RAYCASTER_NAME): $(LIBFT) $(TEST_RAYCASTER_OBJS)
 	@echo "$(TEST_RAYCASTER_NAME) built successfully!"
 	@./$(TEST_RAYCASTER_NAME)
 
-.PHONY: all clean fclean re test
+.PHONY: all bonus clean fclean re test
