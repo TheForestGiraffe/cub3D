@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   renderer.h                                         :+:      :+:    :+:   */
+/*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 20:14:46 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 12:49:50 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/10 12:28:46 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/10 12:40:49 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDERER_H
-# define RENDERER_H
+#include "game.h"
 
-# include "game.h"
+void	move_player(t_game *game)
+{
+	t_ctrl	*ctrl;
 
-int		draw_minimap(t_game *game);
-void	erase_img(t_img *img, int height);
-
-#endif
+	ctrl = &game->player.ctrl;
+	if (ctrl->move_forward)
+	{
+		game->player.dir_x += 0.5;
+		game->player.dir_y += 0.5;
+		game->player.plane_x += 0.5;
+		game->player.plane_y += 0.5;
+	}
+	if (ctrl->move_backward)
+	{
+		game->player.dir_x -= 0.5;
+		game->player.dir_y -= 0.5;
+		game->player.plane_x -= 0.5;
+		game->player.plane_y -= 0.5;
+	}
+}
