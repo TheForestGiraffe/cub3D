@@ -6,11 +6,12 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 17:26:07 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 17:28:33 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+#include "render.h"
 #include "renderer.h"
 #include "mlx.h"
 #include "raycaster.h"
@@ -32,6 +33,8 @@ int	game_loop(void *param)
 		game_destroy(game);
 		exit(1);
 	}
+	if (draw_minimap(game))
+		return (1);
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
 		game->mlx.img.img, 0, 0);
 	return (0);
