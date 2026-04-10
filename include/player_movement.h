@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 12:34:26 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 12:35:24 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 16:40:08 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "game.h"
 
 void	move_player(t_game *game);
+void	rotate_player(t_game *game);
 
 #endif

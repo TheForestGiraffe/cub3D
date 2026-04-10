@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 12:28:46 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 16:29:07 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 17:04:06 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	move_forward(t_game *game)
 {
-	double new_x;
-	double new_y;
+	double	new_x;
+	double	new_y;
 
 	new_x = game->player.x + game->player.dir_x * game->player.ctrl.move_speed;
 	new_y = game->player.y + game->player.dir_y * game->player.ctrl.move_speed;

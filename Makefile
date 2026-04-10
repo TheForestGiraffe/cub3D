@@ -40,6 +40,7 @@ SRCS		:= \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
 			$(SRC_DIR)/player_movement/move_player.c \
+			$(SRC_DIR)/player_movement/rotate_player.c \
 			$(SRC_DIR)/raycaster/cast_rays.c \
 			$(SRC_DIR)/raycaster/calc_hit_point.c \
 			$(SRC_DIR)/raycaster/calc_perp_wall_dist.c \

@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 12:50:34 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 16:40:29 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	game_loop(void *param)
 
 	game = (t_game *)param;
 	move_player(game);
+	rotate_player(game);
 	erase_img(&game->mlx.img, game->mlx.height);
 	cast_rays(game);
 	if (draw_minimap(game))

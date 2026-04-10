@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:16:50 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 15:06:41 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 17:05:23 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,28 @@ static int	draw_walls_and_floor(t_square *wall, t_square *floor, t_game *game)
 	return (0);
 }
 
+static int	draw_nose(t_game *game)
+{
+	int	px;
+	int	py;
+	int	dir_x;
+	int	dir_y;
+	int	i;
+
+	px = (int)(game->player.x * game->minimap.tile_size);
+	py = (int)(game->player.y * game->minimap.tile_size);
+	i = 1;
+	while (i <= 2)
+	{
+		dir_x = px + (int)(game->player.dir_x * i * 5);
+		dir_y = py + (int)(game->player.dir_y * i * 5);
+		if (put_pixel(dir_x, dir_y, game, 0xFF0000))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 static int	draw_player(t_game *game)
 {
 	t_square	player;
@@ -63,6 +85,7 @@ static int	draw_player(t_game *game)
 	player.color = game->minimap.player_color;
 	if (draw_square(&player, game))
 		return (1);
+	draw_nose(game);
 	return (0);
 }
 
