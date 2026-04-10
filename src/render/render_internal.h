@@ -14,6 +14,15 @@
 # define RENDER_INTERNAL_H
 
 # include "game.h"
+# include "raycaster.h"
+
+typedef struct s_render
+{
+	t_texture	*texture;
+	int			tex_col;
+	double		step;
+	double		tex_pos;
+}				t_render;
 
 void			img_put_pixel(t_img *img, int x, int y, unsigned int color);
 unsigned int	img_get_pixel(t_img *img, int x, int y);

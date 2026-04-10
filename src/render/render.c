@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:00:25 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/08 19:43:26 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/09 18:25:35 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	render_floor(t_model *model, t_img *img, int x, int draw_end)
 int	render_stripe(t_game *game, t_ray *ray, int x)
 {
 	render_ceiling(&game->model, &game->mlx.img, x, ray->line_top);
-	render_wall();
+	render_wall(game, ray);
 	render_floor(&game->model, &game->mlx.img, x, ray->line_bottom);
 	return (0);
 }
