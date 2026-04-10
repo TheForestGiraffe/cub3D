@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 17:40:56 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 17:47:40 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,19 @@
 int	game_loop(void *param)
 {
 	t_game	*game;
+	int		x;
 
 	game = (t_game *)param;
 	move_player(game);
 	rotate_player(game);
 	erase_img(&game->mlx.img, game->mlx.height);
 	cast_rays(game);
+	x = 0;
+	while (x < game->mlx.width)
+	{
+		render_stripe(game, &game->rays[x], x);
+		x++;
+	}
 	if (draw_minimap(game))
 	{
 		game_destroy(game);

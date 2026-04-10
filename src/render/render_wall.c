@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 18:59:54 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/09 22:55:45 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 17:51:52 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	init_wall_render(t_game *game, t_ray *ray, t_render *render)
 	render->texture = select_wall_texture(&game->model, ray);
 	render->tex_col = get_texture_col(ray, render->texture->width);
 	render->step = (double)render->texture->height / (double)ray->wall_height;
-	render->tex_pos = (ray->wall_top - game->model.rows / 2.0
+	render->tex_pos = (ray->wall_top - game->mlx.height / 2.0
 			+ ray->wall_height / 2.0) * render->step;
 }
 
