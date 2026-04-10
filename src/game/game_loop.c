@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 16:40:29 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 17:47:40 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+#include "render.h"
 #include "renderer.h"
 #include "mlx.h"
 #include "raycaster.h"
@@ -21,17 +22,26 @@
 int	game_loop(void *param)
 {
 	t_game	*game;
+	int		x;
 
 	game = (t_game *)param;
 	move_player(game);
 	rotate_player(game);
 	erase_img(&game->mlx.img, game->mlx.height);
 	cast_rays(game);
+	x = 0;
+	while (x < game->mlx.width)
+	{
+		render_stripe(game, &game->rays[x], x);
+		x++;
+	}
 	if (draw_minimap(game))
 	{
 		game_destroy(game);
 		exit(1);
 	}
+	if (draw_minimap(game))
+		return (1);
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
 		game->mlx.img.img, 0, 0);
 	return (0);

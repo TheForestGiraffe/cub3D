@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parser_internal.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 10:33:35 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 18:21:42 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/07 18:18:40 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_INTERNAL_H
 # define PARSER_INTERNAL_H
 
-# define FINISHED 0x3F
-
 # include "libft.h"
 # include "parser.h"
+
+# define FINISHED 0x3F
 
 typedef enum e_element
 {

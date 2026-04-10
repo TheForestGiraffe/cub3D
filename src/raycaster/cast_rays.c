@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 16:57:58 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/09 22:45:38 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/10 17:40:56 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "raycaster_internal.h"
 #include "utils.h"
 
-static void	cast_single_ray(t_game *game, t_ray *ray, int screen_x)
+void	cast_single_ray(t_game *game, t_ray *ray, int screen_x)
 {
 	t_temp	tmp;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_setup_load_model.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/03 15:10:17 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/07 18:56:39 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
