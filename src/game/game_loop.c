@@ -3,37 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 17:47:40 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/11 08:35:42 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "render.h"
-#include "mlx.h"
 #include "raycaster.h"
 #include "player_movement.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 int	game_loop(void *param)
 {
 	t_game	*game;
-	int		x;
 
 	game = (t_game *)param;
 	move_player(game);
 	rotate_player(game);
 	cast_rays(game);
-	x = 0;
-	while (x < game->mlx.width)
-	{
-		render_stripe(game, &game->rays[x], x);
-		x++;
-	}
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
-		game->mlx.img.img, 0, 0);
+	render(game);
 	return (0);
 }

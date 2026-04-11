@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   renderer.h                                         :+:      :+:    :+:   */
+/*   draw_square_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 20:14:46 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 12:49:50 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/03 20:44:57 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/11 09:16:24 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIMAP_BONUS_H
-# define MINIMAP_BONUS_H
+#include "render_internal_bonus.h"
 
-# include "game.h"
+void	draw_square(t_square *square, t_game *game)
+{
+	int	i;
+	int	j;
 
-int		draw_minimap(t_game *game);
-void	erase_img(t_img *img, int height);
-
-#endif
+	i = 0;
+	while (i < square->size)
+	{
+		j = 0;
+		while (j < square->size)
+		{
+			img_put_pixel(game, square->x + j, square->y + i, square->color);
+			j++;
+		}
+		i++;
+	}
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 18:20:27 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/09 22:56:46 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/11 09:05:38 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include "game.h"
 # include "raycaster.h"
 
-void	render_stripe(t_game *game, t_ray *ray, int x);
+void	render(t_game *game);
 
 #endif

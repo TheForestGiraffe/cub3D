@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:00:25 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/11 09:41:26 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 09:41:40 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "raycaster.h"
-#include "render_internal.h"
+#include "render_internal_bonus.h"
 #include "mlx.h"
 
 static void	render_ceiling(t_model *model, t_game *game, int x, int draw_start)
@@ -56,6 +56,7 @@ void	render(t_game *game)
 		render_stripe(game, &game->rays[x], x);
 		x++;
 	}
+	render_minimap(game);
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
 		game->mlx.img.img, 0, 0);
 }
