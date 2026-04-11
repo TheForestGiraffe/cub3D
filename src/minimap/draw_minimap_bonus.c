@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_minimap.c                                     :+:      :+:    :+:   */
+/*   draw_minimap_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:16:50 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 18:28:29 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/11 08:39:02 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "libft.h"
 #include "minimap_internal_bonus.h"
+#include "render.h"
 #include <stdio.h>
 
 static t_square	*select_square(char grid_tile, t_square *wall, t_square *floor)
@@ -66,7 +67,7 @@ static int	draw_nose(t_game *game)
 	{
 		dir_x = px + (int)(game->player.dir_x * i * 5);
 		dir_y = py + (int)(game->player.dir_y * i * 5);
-		if (put_pixel(dir_x, dir_y, game, 0xFF0000))
+		if (img_put_pixel(game, dir_x, dir_y, 0xFF0000))
 			return (1);
 		i++;
 	}

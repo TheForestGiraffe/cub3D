@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_square.c                                      :+:      :+:    :+:   */
+/*   draw_square_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:44:57 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 18:28:19 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/11 08:40:31 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minimap_internal_bonus.h"
+#include "render.h"
 
 int	draw_square(t_square *square, t_game *game)
 {
@@ -23,7 +24,7 @@ int	draw_square(t_square *square, t_game *game)
 		j = 0;
 		while (j < square->size)
 		{
-			if (put_pixel(square->x + j, square->y + i, game, square->color))
+			if (img_put_pixel(game, square->x + j, square->y + i, square->color))
 				return (1);
 			j++;
 		}
