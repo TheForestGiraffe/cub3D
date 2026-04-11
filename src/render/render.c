@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:00:25 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/10 18:17:41 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/11 08:22:44 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "raycaster.h"
 #include "render_internal.h"
+#include "mlx.h"
 
 static void	render_ceiling(t_model *model, t_game *game, int x, int draw_start)
 {
@@ -43,4 +44,17 @@ void	render_stripe(t_game *game, t_ray *ray, int x)
 	render_ceiling(&game->model, game, x, ray->wall_top);
 	render_wall(game, ray);
 	render_floor(game, x, ray->wall_bottom);
+}
+void	render(t_game *game)
+{
+	int	x;
+
+	x = 0;
+	while (x < game->mlx.width)
+	{
+		render_stripe(game, &game->rays[x], x);
+		x++;
+	}
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
+		game->mlx.img.img, 0, 0);
 }
