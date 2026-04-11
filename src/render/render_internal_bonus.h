@@ -6,12 +6,12 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:34:27 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/11 09:13:46 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 09:42:17 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_INTERNAL_H
-# define RENDER_INTERNAL_H
+#ifndef RENDER_INTERNAL_BONUS_H
+# define RENDER_INTERNAL_BONUS_H
 
 # include "game.h"
 # include "raycaster.h"
