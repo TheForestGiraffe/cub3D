@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop_bonus.c                                  :+:      :+:    :+:   */
+/*   img_put_pixel.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 17:01:37 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:50:37 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/06 20:33:10 by tcunha            #+#    #+#             */
+/*   Updated: 2026/04/11 09:18:42 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-#include "render.h"
-#include "minimap_bonus.h"
-#include "mlx.h"
-#include "raycaster.h"
-#include "player_movement.h"
+#include "utils.h"
 
-int	game_loop(void *param)
+int	img_put_pixel(t_game *game, int x, int y, unsigned int color)
 {
-	t_game	*game;
-	int		x;
+	char	*pixel;
 
-	game = (t_game *)param;
-	move_player(game);
-	rotate_player(game);
-	erase_img(&game->mlx.img, game->mlx.height);
-	cast_rays(game);
-	render(game);
-	render_minimap(game);
+	if (x < 0 || x >= game->mlx.width || y < 0 || y >= game->mlx.height)
+		return (print_error("@put_pixel", "x or y out of screen bounds"), 1);
+	pixel = game->mlx.img.address + y * game->mlx.img.line_size + x
+		* (game->mlx.img.bits_per_pixel / 8);
+	*(unsigned int *)pixel = color;
 	return (0);
 }

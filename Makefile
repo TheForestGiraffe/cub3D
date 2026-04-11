@@ -51,19 +51,51 @@ SRCS		:= \
 			$(SRC_DIR)/raycaster/perform_dda.c \
 			$(SRC_DIR)/raycaster/ray_init.c \
 			$(SRC_DIR)/raycaster/set_wall_dir.c \
-			$(SRC_DIR)/render/render.c \
+			$(SRC_DIR)/render/img_get_pixel.c \
+			$(SRC_DIR)/render/img_put_pixel.c \
 			$(SRC_DIR)/render/render_wall.c \
-			$(SRC_DIR)/render/render_utils.c \
+			$(SRC_DIR)/render/render.c \
 			$(SRC_DIR)/utils/error.c
 
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 BONUS_SRCS	:= \
-			$(SRC_DIR)/game/game_loop_bonus.c \
-			$(SRC_DIR)/minimap/render_minimap_bonus.c \
-			$(SRC_DIR)/minimap/draw_square_bonus.c \
-			$(SRC_DIR)/minimap/put_pixel_bonus.c \
-			$(SRC_DIR)/minimap/erase_img_bonus.c
+			$(SRC_DIR)/main.c \
+			$(SRC_DIR)/game/game_destroy.c \
+			$(SRC_DIR)/game/game_loop.c \
+			$(SRC_DIR)/game/game_setup.c \
+			$(SRC_DIR)/game/game_setup_load_model.c \
+			$(SRC_DIR)/game/game_setup_load_player.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_destroy.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_events.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_register_hooks.c \
+			$(SRC_DIR)/mlx_wrapper/mlx_setup.c \
+			$(SRC_DIR)/parser/parser.c \
+			$(SRC_DIR)/parser/parser_map.c \
+			$(SRC_DIR)/parser/parser_retrieve_grid.c \
+			$(SRC_DIR)/parser/parser_validate_grid.c \
+			$(SRC_DIR)/parser/parser_validate_grid_2.c \
+			$(SRC_DIR)/parser/parser_textures.c \
+			$(SRC_DIR)/parser/parser_utils.c \
+			$(SRC_DIR)/parser/parser_destroy.c \
+			$(SRC_DIR)/player_movement/move_utils.c \
+			$(SRC_DIR)/player_movement/move_player.c \
+			$(SRC_DIR)/player_movement/rotate_player.c \
+			$(SRC_DIR)/raycaster/cast_rays.c \
+			$(SRC_DIR)/raycaster/calc_hit_point.c \
+			$(SRC_DIR)/raycaster/calc_perp_wall_dist.c \
+			$(SRC_DIR)/raycaster/calc_wall_height.c \
+			$(SRC_DIR)/raycaster/calc_wall_x.c \
+			$(SRC_DIR)/raycaster/perform_dda.c \
+			$(SRC_DIR)/raycaster/ray_init.c \
+			$(SRC_DIR)/raycaster/set_wall_dir.c \
+			$(SRC_DIR)/render/draw_square_bonus.c \
+			$(SRC_DIR)/render/img_get_pixel.c \
+			$(SRC_DIR)/render/img_put_pixel.c \
+			$(SRC_DIR)/render/render_bonus.c \
+			$(SRC_DIR)/render/render_minimap_bonus.c \
+			$(SRC_DIR)/render/render_wall.c \
+			$(SRC_DIR)/utils/error.c
 
 BONUS_OBJ_DIR	:= obj_bonus
 BONUS_OBJS		:= $(BONUS_SRCS:$(SRC_DIR)/%.c=$(BONUS_OBJ_DIR)/%.o)

@@ -6,15 +6,13 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:16:50 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:55:19 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 09:28:32 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "libft.h"
-#include "minimap_internal_bonus.h"
-#include "render.h"
-#include <stdio.h>
+#include "render_internal_bonus.h"
 
 static t_square	*select_square(char grid_tile, t_square *wall, t_square *floor)
 {
@@ -63,14 +61,14 @@ static void	draw_nose(t_game *game)
 	i = 1;
 	while (i <= 2)
 	{
-		dir_x = px + (int)(game->player.dir_x * i * 5);
-		dir_y = py + (int)(game->player.dir_y * i * 5);
-		img_put_pixel(game, dir_x, dir_y, 0xFF0000);
+		dir_x = px + (int)(game->player.dir_x * i * 4);
+		dir_y = py + (int)(game->player.dir_y * i * 4);
+		img_put_pixel(game, dir_x, dir_y, game->minimap.player_color);
 		i++;
 	}
 }
 
-static int	draw_player(t_game *game)
+static void	draw_player(t_game *game)
 {
 	t_square	player;
 

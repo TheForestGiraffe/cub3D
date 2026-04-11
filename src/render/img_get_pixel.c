@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_square_bonus.c                                :+:      :+:    :+:   */
+/*   img_get_pixel.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 20:44:57 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:54:42 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/04/06 20:33:10 by tcunha            #+#    #+#             */
+/*   Updated: 2026/04/11 09:17:59 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minimap_internal_bonus.h"
-#include "render.h"
+#include "game.h"
 
-void	draw_square(t_square *square, t_game *game)
+unsigned int	img_get_pixel(t_img *img, int x, int y)
 {
-	int	i;
-	int	j;
+	char	*pixel;
 
-	i = 0;
-	while (i < square->size)
-	{
-		j = 0;
-		while (j < square->size)
-		{
-			img_put_pixel(game, square->x + j, square->y + i, square->color);
-			j++;
-		}
-		i++;
-	}
+	pixel = img->address + y * img->line_size + x * (img->bits_per_pixel / 8);
+	return (*(unsigned int *)pixel);
 }
