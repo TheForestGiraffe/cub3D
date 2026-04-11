@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap_internal.h                                 :+:      :+:    :+:   */
+/*   draw_square.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 20:32:12 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 18:39:35 by tcunha           ###   ########.fr       */
+/*   Created: 2026/04/03 20:44:57 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/04/10 18:28:19 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIMAP_INTERNAL_H
-# define MINIMAP_INTERNAL_H
+#include "minimap_internal_bonus.h"
 
-# include "game.h"
-
-typedef struct s_square
+int	draw_square(t_square *square, t_game *game)
 {
-	int	x;
-	int	y;
-	int	size;
-	int	color;
-}		t_square;
+	int	i;
+	int	j;
 
-int	draw_square(t_square *square, t_game *game);
-int	put_pixel(int x, int y, t_game *game, unsigned int color);
-
-#endif
+	i = 0;
+	while (i < square->size)
+	{
+		j = 0;
+		while (j < square->size)
+		{
+			if (put_pixel(square->x + j, square->y + i, game, square->color))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}

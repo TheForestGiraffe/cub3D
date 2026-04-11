@@ -6,7 +6,7 @@
 /*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 10:33:35 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/07 18:18:40 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 20:58:59 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int		has_flag(int status, t_element element);
 int		is_finished(int status);
 void	skip_spaces(char **str);
 void	free_array(char **array);
+int		check_grid_closure(t_map *map, char **visited);
 
 #endif

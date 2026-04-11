@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_validate_grid.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 19:24:32 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/06 13:26:36 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/10 21:00:30 by tcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,22 +90,6 @@ static char	**make_visited_grid(int rows, int cols)
 	return (new_grid);
 }
 
-static int	validate_map(t_map *map, char **visited, int row, int col)
-{
-	if (col < 0 || row < 0 || col >= map->cols || row >= map->rows
-		|| map->grid[row][col] == ' ')
-		return (1);
-	if (map->grid[row][col] == '1' || visited[row][col] == 'v')
-		return (0);
-	visited[row][col] = 'v';
-	if (validate_map(map, visited, row + 1, col)
-		|| validate_map(map, visited, row - 1, col)
-		|| validate_map(map, visited, row, col + 1)
-		|| validate_map(map, visited, row, col - 1))
-		return (1);
-	return (0);
-}
-
 int	parser_validate_grid(t_map *map)
 {
 	char	**visited;
@@ -117,7 +101,7 @@ int	parser_validate_grid(t_map *map)
 	visited = make_visited_grid(map->rows, map->cols);
 	if (!visited)
 		return (1);
-	if (validate_map(map, visited, map->player.y, map->player.x))
+	if (check_grid_closure(map, visited))
 	{
 		free_array(visited);
 		return (print_error("@parser_validate_grid", "Map is not closed"), 1);
