@@ -60,7 +60,7 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 BONUS_SRCS	:= \
 			$(SRC_DIR)/game/game_loop_bonus.c \
-			$(SRC_DIR)/minimap/draw_minimap_bonus.c \
+			$(SRC_DIR)/minimap/render_minimap_bonus.c \
 			$(SRC_DIR)/minimap/draw_square_bonus.c \
 			$(SRC_DIR)/minimap/put_pixel_bonus.c \
 			$(SRC_DIR)/minimap/erase_img_bonus.c

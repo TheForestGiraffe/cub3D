@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_minimap_bonus.c                               :+:      :+:    :+:   */
+/*   render_minimap_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:16:50 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:39:02 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 08:50:00 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static int	draw_player(t_game *game)
 	return (0);
 }
 
-int	draw_minimap(t_game *game)
+int	render_minimap(t_game *game)
 {
 	t_square	wall;
 	t_square	floor;
