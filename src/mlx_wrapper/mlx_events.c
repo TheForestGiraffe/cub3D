@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 16:07:16 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:57:33 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 09:37:14 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	on_key_press(int key, void *param)
 		game->player.ctrl.move_left = true;
 	if (key == XK_d)
 		game->player.ctrl.move_right = true;
-	if ((key == XK_w))
+	if ((key == XK_w) || (key == XK_Up))
 		game->player.ctrl.move_forward = true;
-	if ((key == XK_s))
+	if ((key == XK_s) || (key == XK_Down))
 		game->player.ctrl.move_backward = true;
 	if (key == XK_Left)
 		game->player.ctrl.turn_left = true;
