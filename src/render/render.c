@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:00:25 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/11 08:22:44 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 08:35:10 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	render_stripe(t_game *game, t_ray *ray, int x)
 	render_wall(game, ray);
 	render_floor(game, x, ray->wall_bottom);
 }
+
 void	render(t_game *game)
 {
 	int	x;
