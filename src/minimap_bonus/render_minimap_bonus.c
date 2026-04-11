@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:16:50 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:50:00 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 08:55:19 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_square	*select_square(char grid_tile, t_square *wall, t_square *floor)
 	return (NULL);
 }
 
-static int	draw_walls_and_floor(t_square *wall, t_square *floor, t_game *game)
+static void	draw_walls_and_floor(t_square *wall, t_square *floor, t_game *game)
 {
 	int			i;
 	int			j;
@@ -42,17 +42,15 @@ static int	draw_walls_and_floor(t_square *wall, t_square *floor, t_game *game)
 			{
 				square->x = j * game->minimap.tile_size;
 				square->y = i * game->minimap.tile_size;
-				if (draw_square(square, game))
-					return (1);
+				draw_square(square, game);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }
 
-static int	draw_nose(t_game *game)
+static void	draw_nose(t_game *game)
 {
 	int	px;
 	int	py;
@@ -67,11 +65,9 @@ static int	draw_nose(t_game *game)
 	{
 		dir_x = px + (int)(game->player.dir_x * i * 5);
 		dir_y = py + (int)(game->player.dir_y * i * 5);
-		if (img_put_pixel(game, dir_x, dir_y, 0xFF0000))
-			return (1);
+		img_put_pixel(game, dir_x, dir_y, 0xFF0000);
 		i++;
 	}
-	return (0);
 }
 
 static int	draw_player(t_game *game)
@@ -84,10 +80,8 @@ static int	draw_player(t_game *game)
 		- (game->minimap.player_size / 2);
 	player.size = game->minimap.player_size;
 	player.color = game->minimap.player_color;
-	if (draw_square(&player, game))
-		return (1);
+	draw_square(&player, game);
 	draw_nose(game);
-	return (0);
 }
 
 int	render_minimap(t_game *game)
@@ -101,9 +95,7 @@ int	render_minimap(t_game *game)
 	ft_bzero(&floor, sizeof(t_square));
 	floor.size = game->minimap.tile_size;
 	floor.color = game->minimap.floor_color;
-	if (draw_walls_and_floor(&wall, &floor, game))
-		return (1);
-	if (draw_player(game))
-		return (1);
+	draw_walls_and_floor(&wall, &floor, game);
+	draw_player(game);
 	return (0);
 }

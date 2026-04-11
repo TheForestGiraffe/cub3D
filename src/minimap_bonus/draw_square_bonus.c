@@ -6,14 +6,14 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:44:57 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:40:31 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 08:54:42 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minimap_internal_bonus.h"
 #include "render.h"
 
-int	draw_square(t_square *square, t_game *game)
+void	draw_square(t_square *square, t_game *game)
 {
 	int	i;
 	int	j;
@@ -24,11 +24,9 @@ int	draw_square(t_square *square, t_game *game)
 		j = 0;
 		while (j < square->size)
 		{
-			if (img_put_pixel(game, square->x + j, square->y + i, square->color))
-				return (1);
+			img_put_pixel(game, square->x + j, square->y + i, square->color);
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:32:12 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 08:40:04 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/11 08:53:56 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ typedef struct s_square
 	int	color;
 }		t_square;
 
-int	draw_square(t_square *square, t_game *game);
+void	draw_square(t_square *square, t_game *game);
 
 #endif
