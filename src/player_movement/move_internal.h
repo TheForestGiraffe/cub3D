@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_internal.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 20:12:25 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/10 20:13:20 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/12 14:49:17 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "game.h"
 
-int	is_valid_x(t_game *game, double new_x, double y);
-int	is_valid_y(t_game *game, double x, double new_y);
+int	is_valid_move(t_game *game, double new_x, double new_y);
 
 #endif

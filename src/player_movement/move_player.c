@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 12:28:46 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/10 20:13:35 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/12 14:50:35 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ static void	move_forward(t_game *game)
 
 	new_x = game->player.x + game->player.dir_x * game->player.ctrl.move_speed;
 	new_y = game->player.y + game->player.dir_y * game->player.ctrl.move_speed;
-	if (is_valid_x(game, new_x, game->player.y))
+	if (is_valid_move(game, new_x, new_y))
+	{
 		game->player.x = new_x;
-	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
+	}
 }
 
 static void	move_backward(t_game *game)
@@ -33,10 +34,11 @@ static void	move_backward(t_game *game)
 
 	new_x = game->player.x - game->player.dir_x * game->player.ctrl.move_speed;
 	new_y = game->player.y - game->player.dir_y * game->player.ctrl.move_speed;
-	if (is_valid_x(game, new_x, game->player.y))
+	if (is_valid_move(game, new_x, new_y))
+	{
 		game->player.x = new_x;
-	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
+	}
 }
 
 static void	move_left(t_game *game)
@@ -50,10 +52,11 @@ static void	move_left(t_game *game)
 	perp_y = game->player.dir_x;
 	new_x = game->player.x - perp_x * game->player.ctrl.move_speed;
 	new_y = game->player.y - perp_y * game->player.ctrl.move_speed;
-	if (is_valid_x(game, new_x, game->player.y))
+	if (is_valid_move(game, new_x, new_y))
+	{
 		game->player.x = new_x;
-	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
+	}
 }
 
 static void	move_right(t_game *game)
@@ -67,10 +70,11 @@ static void	move_right(t_game *game)
 	perp_y = game->player.dir_x;
 	new_x = game->player.x + perp_x * game->player.ctrl.move_speed;
 	new_y = game->player.y + perp_y * game->player.ctrl.move_speed;
-	if (is_valid_x(game, new_x, game->player.y))
+	if (is_valid_move(game, new_x, new_y))
+	{
 		game->player.x = new_x;
-	if (is_valid_y(game, game->player.x, new_y))
 		game->player.y = new_y;
+	}
 }
 
 void	move_player(t_game *game)

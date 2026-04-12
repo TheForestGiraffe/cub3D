@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/11 09:26:20 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/12 14:51:49 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static int	game_init(t_game *game)
 	if (!game->rays)
 		return (print_error("@game_init", "malloc *rays"), 1);
 	ft_bzero(game->rays, sizeof(t_ray) * game->mlx.width);
-	game->player.ctrl.move_speed = 0.02;
-	game->player.ctrl.rot_speed = 0.02;
+	game->player.ctrl.move_speed = 0.01;
+	game->player.ctrl.rot_speed = 0.01;
 	game->minimap.tile_size = 8;
 	game->minimap.player_size = 4;
 	game->minimap.player_color = 0xFFFF00;
