@@ -4,7 +4,7 @@
 
 NAME		:= cub3D
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -g
+CFLAGS		:= -Wall -Wextra -Werror -MMD -MP -g
 
 # **************************************************************************** #
 #                                 DIRECTORIES                                  #
@@ -152,6 +152,9 @@ fclean: clean
 	@echo "$(NAME) removed."
 
 re: fclean all
+
+-include $(BONUS_OBJS:.o=.d)
+-include $(OBJS:.o=.d)
 
 # **************************************************************************** #
 #                                    TEST NORM                                 #
