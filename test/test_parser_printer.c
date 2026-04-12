@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_printer.c                                     :+:      :+:    :+:   */
+/*   test_parser_printer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 09:30:55 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 09:51:55 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/12 15:03:54 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "test.h"
+#include "test_parser.h"
 #include <unistd.h>
 
 void	print_test_header(t_test *test)

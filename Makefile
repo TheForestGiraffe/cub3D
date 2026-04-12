@@ -177,9 +177,9 @@ TEST_PARSER_SRCS	:= \
 			$(SRC_DIR)/parser/parser_utils.c \
 			$(SRC_DIR)/parser/parser_destroy.c \
 			$(SRC_DIR)/utils/error.c \
-			$(SRC_DIR)/test/test_init.c \
-			$(SRC_DIR)/test/test_printer.c \
-			$(SRC_DIR)/test/test.c
+			$(SRC_DIR)/test/test_parser_init.c \
+			$(SRC_DIR)/test/test_parser_printer.c \
+			$(SRC_DIR)/test/test_parser.c
 TEST_OBJS	:= $(TEST_PARSER_SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 $(OBJ_DIR)/$(TEST_PARSER_DIR)/%.o: $(TEST_PARSER_DIR)/%.c

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_init.c                                        :+:      :+:    :+:   */
+/*   test_parser_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcunha <tcunha@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 09:53:32 by tcunha            #+#    #+#             */
-/*   Updated: 2026/04/03 10:07:05 by tcunha           ###   ########.fr       */
+/*   Updated: 2026/04/12 15:04:35 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "test.h"
+#include "test_parser.h"
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -43,7 +43,7 @@ static int	read_test_file(char ***tests)
 	char	buf[TEST_MAX];
 	int		fd;
 
-	fd = open("test/tests.conf", O_RDONLY);
+	fd = open("test/test_parser.conf", O_RDONLY);
 	if (fd == -1)
 		return (1);
 	ft_memset(buf, 0, TEST_MAX);
