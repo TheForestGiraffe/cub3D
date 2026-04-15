@@ -2,6 +2,9 @@
 tcunha.*
 
 # cub3D
+<P align="center">
+	<img width="720" alt="game screenshot" src="https://github.com/user-attachments/assets/6de4df39-cb16-4c87-a1d9-32d7d779925f" />
+<p/>
 
 ## Description
 
