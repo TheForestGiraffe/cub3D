@@ -17,6 +17,9 @@ tcunha.*
 	The bonus version adds a top-down minimap overlay rendered directly on the
 	game window.
 
+	The *.xpm texture files were created based on *.gif images, courtesy of
+	https://www.areyep.com/  
+
 ### Project structure
 
 	cub3D/
@@ -150,4 +153,5 @@ tcunha.*
 	This Claude project was used to discuss computer science concepts, search
 	for relevant sources and help with the overall code structure. All logic
 	and code resulting from these discussions were manually implemented, tested,
-	and verified against the project requirements.
+	and verified against the project requirements. Unit tests were not all
+	manually written.
