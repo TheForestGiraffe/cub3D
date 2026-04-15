@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:34:35 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/04/12 14:51:49 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/04/15 23:13:14 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@
 static int	game_init(t_game *game)
 {
 	ft_bzero(game, sizeof(t_game));
-	game->mlx.width = 860;
-	game->mlx.height = 640;
+	game->mlx.width = 1080;
+	game->mlx.height = 720;
 	game->rays = malloc(sizeof(t_ray) * game->mlx.width);
 	if (!game->rays)
 		return (print_error("@game_init", "malloc *rays"), 1);
 	ft_bzero(game->rays, sizeof(t_ray) * game->mlx.width);
-	game->player.ctrl.move_speed = 0.01;
-	game->player.ctrl.rot_speed = 0.01;
+	game->player.ctrl.move_speed = 0.02;
+	game->player.ctrl.rot_speed = 0.02;
 	game->minimap.tile_size = 8;
 	game->minimap.player_size = 4;
-	game->minimap.player_color = 0xFFFF00;
-	game->minimap.floor_color = 0x00AAAAAA;
-	game->minimap.wall_color = 0x00444444;
+	game->minimap.player_color = 0xF2F0ED;
+	game->minimap.floor_color = 0x6F7070;
+	game->minimap.wall_color = 0x343536;
 	return (0);
 }
 
