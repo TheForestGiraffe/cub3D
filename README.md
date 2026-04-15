@@ -20,9 +20,6 @@ tcunha.*
 	The bonus version adds a top-down minimap overlay rendered directly on the
 	game window.
 
-	The *.xpm texture files were created based on *.gif images, courtesy of
-	https://www.areyep.com/  
-
 ### Project structure
 
 	cub3D/
@@ -61,8 +58,8 @@ tcunha.*
 
 	./cub3D <path/to/map.cub>
 
-	Example:
-	./cub3D maps/test.cub
+	Examples:
+	./cub3D maps/spaceship.cub
 
 ### Controls
 
@@ -158,3 +155,7 @@ tcunha.*
 	and code resulting from these discussions were manually implemented, tested,
 	and verified against the project requirements. Unit tests were not all
 	manually written.
+
+  ## Credits
+
+  Some of the textures are a courtesy of https://www.areyep.com/  
