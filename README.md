@@ -45,13 +45,13 @@ game window.
 ### Compilation
 
 
-	| cmd         | Result                                 |
-	| ------------| ---------------------------------------|
-	| make        | build the mandatory version            |
-	| make bonus  | build the bonus version (with minimap) |
-	| make clean  | remove object files                    |
-	| make fclean | remove object files and the executable |
-	| make re     | recompile from scratch                 |
+| cmd         | Result                                 |
+| ------------| ---------------------------------------|
+| make        | build the mandatory version            |
+| make bonus  | build the bonus version (with minimap) |
+| make clean  | remove object files                    |
+| make fclean | remove object files and the executable |
+| make re     | recompile from scratch                 |
 
 ### Execution
 
