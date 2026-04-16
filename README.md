@@ -10,15 +10,15 @@ tcunha.*
 
 ### General Description
 
-	cub3D is a raycasting-based 3D game engine written in C, inspired by the
-	original Wolfenstein 3D. Given a map file, the program renders a
-	first-person perspective of the environment using the DDA (Digital
-	Differential Analysis) raycasting algorithm. Each wall face can have a
-	distinct XPM texture (North, South, West, East), and the floor and ceiling
-	are rendered with solid RGB colors.
+cub3D is a raycasting-based 3D game engine written in C, inspired by the
+original Wolfenstein 3D. Given a map file, the program renders a
+first-person perspective of the environment using the DDA (Digital
+Differential Analysis) raycasting algorithm. Each wall face can have a
+distinct XPM texture (North, South, West, East), and the floor and ceiling
+are rendered with solid RGB colors.
 
-	The bonus version adds a top-down minimap overlay rendered directly on the
-	game window.
+The bonus version adds a top-down minimap overlay rendered directly on the
+game window.
 
 ### Project structure
 
@@ -44,22 +44,26 @@ tcunha.*
 
 ### Compilation
 
-	| cmd --------| Result --------------------------------|
+
+	| cmd         | Result                                 |
 	| ------------| ---------------------------------------|
-	| make -------| build the mandatory version -----------|
-	| make bonus -| build the bonus version (with minimap) |
-	| make clean -| remove object files -------------------|
+	| make        | build the mandatory version            |
+	| make bonus  | build the bonus version (with minimap) |
+	| make clean  | remove object files                    |
 	| make fclean | remove object files and the executable |
-	| make re ----| recompile from scratch ----------------|
+	| make re     | recompile from scratch                 |
 
 ### Execution
 
-	To use the program run:
+To use the program run:
+```bash
+./cub3D <path/to/map.cub>
+```
 
-	./cub3D <path/to/map.cub>
-
-	Examples:
-	./cub3D maps/spaceship.cub
+Examples:
+```bash
+./cub3D maps/spaceship.cub
+```
 
 ### Controls
 
