@@ -60,57 +60,58 @@ To use the program run:
 ./cub3D <path/to/map.cub>
 ```
 
-Examples:
+Example:
 ```bash
 ./cub3D maps/spaceship.cub
 ```
 
 ### Controls
 
-	| Key --| Action -------------|
-	|-------|---------------------|
-	| `W` --| Move forward -------|
-	| `S` --| Move backward ------|
-	| `A` --| Strafe left --------|
-	| `D` --| Strafe right -------|
-	| `←` --| Rotate camera left -|
-	| `→` --| Rotate camera right |
-	| `ESC` | Exit ---------------|
+| Key   | Action              |
+|-------|---------------------|
+| `W`   | Move forward        |
+| `S`   | Move backward       |
+| `A`   | Strafe left         |
+| `D`   | Strafe right        |
+| `←`   | Rotate camera left  |
+| `→`   | Rotate camera right |
+| `ESC` | Exit                |
 
 ### Testing/Debug rules
 
-	| Cmd ----------------| Result ---------------------|
-	| make test_parser ---| run parser unit tests ------|
-	| make test_raycaster | run raycaster unit tests ---|
-	| make test_norm -----| check norminette compliance |
+| Cmd                 | Result                      |
+|---------------------|-----------------------------|
+| make test_parser    | run parser unit tests       |
+| make test_raycaster | run raycaster unit tests    |
+| make test_norm      | check norminette compliance |
 
 ### Map file format (.cub)
 
-	The map file has two sections: scene configuration and the map grid.
+The map file has two sections: scene configuration and the map grid.
 
-	Scene configuration (order does not matter, must appear before the map):
+Scene configuration (order does not matter, must appear before the map):
 
-	| Id --| Value ---------------------------| Example ------------------|
-	|------|----------------------------------|---------------------------|
-	| `NO` | Path to North wall texture (XPM) | `NO ./textures/north.xpm` |
-	| `SO` | Path to South wall texture (XPM) | `SO ./textures/south.xpm` |
-	| `WE` | Path to West wall texture (XPM) -| `WE ./textures/west.xpm` -|
-	| `EA` | Path to East wall texture (XPM) -| `EA ./textures/east.xpm` -|
-	| `F` -| Floor color (R,G,B) -------------| `F 220,100,0` ------------|
-	| `C` -| Ceiling color (R,G,B) -----------| `C 225,30,0` -------------|
+| Id   | Value                            | Example                   |
+|------|----------------------------------|---------------------------|
+| `NO` | Path to North wall texture (XPM) | `NO ./textures/north.xpm` |
+| `SO` | Path to South wall texture (XPM) | `SO ./textures/south.xpm` |
+| `WE` | Path to West wall texture (XPM)  | `WE ./textures/west.xpm`  |
+| `EA` | Path to East wall texture (XPM)  | `EA ./textures/east.xpm`  |
+| `F`  | Floor color (R,G,B)              | `F 220,100,0`             |
+| `C`  | Ceiling color (R,G,B)            | `C 225,30,0`              |
 
-	Map grid (must be the last element in the file):
+Map grid (must be the last element in the file):
 
-	| Char -----------------| Meaning -----------------------------------|
-	|-----------------------|--------------------------------------------|
-	| `1` ------------------| Wall --------------------------------------|
-	| `0` ------------------| Empty floor -------------------------------|
-	| `N` / `S` / `E` / `W` | Player start position and facing direction |
+| Char                  | Meaning                                    |
+|-----------------------|--------------------------------------------|
+| `1`                   | Wall                                       |
+| `0`                   | Empty floor                                |
+| `N` / `S` / `E` / `W` | Player start position and facing direction |
 
-	The map must be fully enclosed by walls (`1`). Exactly one player start
-	position must be present.
+The map must be fully enclosed by walls (`1`). Exactly one player start
+position must be present.
 
-	Simple example of a `.cub` file:
+Simple example of a `.cub` file:
 
 	NO ./textures/north.xpm
 	SO ./textures/south.xpm
@@ -128,38 +129,38 @@ Examples:
 
 ## Resources
 
-	[MiniLibX 42 Docs]
-	(https://harm-smits.github.io/42docs/libs/minilibx)
+MiniLibX 42 Docs:  
+https://harm-smits.github.io/42docs/libs/minilibx
 
-	[Lode's Computer Graphics Tutorial — Raycasting]
-	(https://lodev.org/cgtutor/raycasting.html)
+Lode's Computer Graphics Tutorial - Raycasting:  
+https://lodev.org/cgtutor/raycasting.html
 
-	[Permadi's Ray-Casting Tutorial]
-	(http://permadi.com/1996/05/ray-casting-tutorial-table-of-contents/)
+Permadi's Ray-Casting Tutorial:  
+http://permadi.com/1996/05/ray-casting-tutorial-table-of-contents/
 
 ## AI Usage
 
-	A Claude project was created with the name "Computer Science Professor" and
-	the following description "A professor of computer science who guides the
-	user in computer science learning". The project is instructed to act as an
-	expert senior software engineer and computer science educator, with
-	expertise in C programming, software architecture, data structures, and
-	algorithms. The goal of the project is to guide the user to their own
-	solution through Socratic teaching. The project must prioritize deep
-	conceptual understanding over quick fixes. Strict operational constraints
-	where given to (i) not provide full code solutions or complete snippets;
-	(ii) if a user asks for code, provide pseudocode, logic flows, or
-	architectural diagrams first. Only provide syntax help after the user
-	demonstrates they understand the logic; (iii) when referencing functions or
-	tools, refer to standard documentation (e.g., C standard library, POSIX
-	standards).
+A Claude project was created with the name "Computer Science Professor" and
+the following description "A professor of computer science who guides the
+user in computer science learning". The project is instructed to act as an
+expert senior software engineer and computer science educator, with
+expertise in C programming, software architecture, data structures, and
+algorithms. The goal of the project is to guide the user to their own
+solution through Socratic teaching. The project must prioritize deep
+conceptual understanding over quick fixes. Strict operational constraints
+where given to (i) not provide full code solutions or complete snippets;
+(ii) if a user asks for code, provide pseudocode, logic flows, or
+architectural diagrams first. Only provide syntax help after the user
+demonstrates they understand the logic; (iii) when referencing functions or
+tools, refer to standard documentation (e.g., C standard library, POSIX
+standards).
 
-	This Claude project was used to discuss computer science concepts, search
-	for relevant sources and help with the overall code structure. All logic
-	and code resulting from these discussions were manually implemented, tested,
-	and verified against the project requirements. Unit tests were not all
-	manually written.
+This Claude project was used to discuss computer science concepts, search
+for relevant sources and help with the overall code structure. All logic
+and code resulting from these discussions were manually implemented, tested,
+and verified against the project requirements. Unit tests were not all
+manually written.
 
-  ## Credits
+## Attributions
 
-  Some of the textures are a courtesy of https://www.areyep.com/  
+Some of the textures are a courtesy of https://www.areyep.com/  
