@@ -6,6 +6,25 @@ on:
 
 jobs:
 
+  cub3D_build:
+    name: "cub3D: Build"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            xorg \
+            libxext-dev \
+            libbsd-dev
+
+      - name: Build cub3D
+        run: make
+
   cub3D_tests:
     name: ${{ matrix.label }}
     runs-on: ubuntu-latest
