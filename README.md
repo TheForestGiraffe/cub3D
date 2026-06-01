@@ -42,7 +42,29 @@ game window.
 
 ## Instructions
 
-### Compilation
+### Install Prerequisites
+
+cub3D was developed and tested on Linux using the 42 MiniLibX.
+
+On Ubuntu / Debian, install the required build dependencies:
+
+```bash
+sudo apt update
+sudo apt install -y \
+	build-essential \
+	xorg \
+	libxext-dev \
+	libbsd-dev
+```
+
+### Clone the repository
+
+```bash
+git clone git@github.com:TheForestGiraffe/cub3D.git
+cd cub3D
+```
+
+### Compile
 
 
 | cmd         | Result                                 |
@@ -53,7 +75,7 @@ game window.
 | make fclean | remove object files and the executable |
 | make re     | recompile from scratch                 |
 
-### Execution
+### Execute
 
 To use the program run:
 ```bash
